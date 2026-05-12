@@ -19,7 +19,7 @@ function ProductPage() {
   const [size, setSize] = useState(p.sizes[0]);
   const [color, setColor] = useState(p.colors[0]);
   const [added, setAdded] = useState(false);
-  const combine = (p.combine ?? []).map(findProduct).filter(Boolean);
+  const combine: Product[] = (p.combine ?? []).map(findProduct).filter((x): x is Product => Boolean(x));
 
   return (
     <div className="ni-container py-10">
