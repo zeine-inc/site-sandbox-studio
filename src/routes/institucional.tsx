@@ -4,14 +4,14 @@ export const Route = createFileRoute("/institucional")({
   component: InstLayout,
 });
 
-const nav = [
+const nav: { to: string; label: string; exact?: boolean }[] = [
   { to: "/institucional", label: "Início", exact: true },
   { to: "/institucional/sobre", label: "Sobre" },
   { to: "/institucional/especialidades", label: "Especialidades" },
   { to: "/institucional/equipe", label: "Equipe" },
   { to: "/institucional/blog", label: "Blog" },
   { to: "/institucional/contato", label: "Contato" },
-] as const;
+];
 
 function InstLayout() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
