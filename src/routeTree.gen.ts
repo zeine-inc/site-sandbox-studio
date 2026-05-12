@@ -13,6 +13,7 @@ import { Route as InstitucionalRouteImport } from './routes/institucional'
 import { Route as EcommerceRouteImport } from './routes/ecommerce'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InstitucionalIndexRouteImport } from './routes/institucional.index'
+import { Route as EcommerceIndexRouteImport } from './routes/ecommerce.index'
 import { Route as InstitucionalSobreRouteImport } from './routes/institucional.sobre'
 import { Route as InstitucionalEspecialidadesRouteImport } from './routes/institucional.especialidades'
 import { Route as InstitucionalEquipeRouteImport } from './routes/institucional.equipe'
@@ -38,6 +39,11 @@ const InstitucionalIndexRoute = InstitucionalIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => InstitucionalRoute,
+} as any)
+const EcommerceIndexRoute = EcommerceIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EcommerceRoute,
 } as any)
 const InstitucionalSobreRoute = InstitucionalSobreRouteImport.update({
   id: '/sobre',
@@ -68,35 +74,37 @@ const InstitucionalBlogRoute = InstitucionalBlogRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/ecommerce': typeof EcommerceRoute
+  '/ecommerce': typeof EcommerceRouteWithChildren
   '/institucional': typeof InstitucionalRouteWithChildren
   '/institucional/blog': typeof InstitucionalBlogRoute
   '/institucional/contato': typeof InstitucionalContatoRoute
   '/institucional/equipe': typeof InstitucionalEquipeRoute
   '/institucional/especialidades': typeof InstitucionalEspecialidadesRoute
   '/institucional/sobre': typeof InstitucionalSobreRoute
+  '/ecommerce/': typeof EcommerceIndexRoute
   '/institucional/': typeof InstitucionalIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/ecommerce': typeof EcommerceRoute
   '/institucional/blog': typeof InstitucionalBlogRoute
   '/institucional/contato': typeof InstitucionalContatoRoute
   '/institucional/equipe': typeof InstitucionalEquipeRoute
   '/institucional/especialidades': typeof InstitucionalEspecialidadesRoute
   '/institucional/sobre': typeof InstitucionalSobreRoute
+  '/ecommerce': typeof EcommerceIndexRoute
   '/institucional': typeof InstitucionalIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/ecommerce': typeof EcommerceRoute
+  '/ecommerce': typeof EcommerceRouteWithChildren
   '/institucional': typeof InstitucionalRouteWithChildren
   '/institucional/blog': typeof InstitucionalBlogRoute
   '/institucional/contato': typeof InstitucionalContatoRoute
   '/institucional/equipe': typeof InstitucionalEquipeRoute
   '/institucional/especialidades': typeof InstitucionalEspecialidadesRoute
   '/institucional/sobre': typeof InstitucionalSobreRoute
+  '/ecommerce/': typeof EcommerceIndexRoute
   '/institucional/': typeof InstitucionalIndexRoute
 }
 export interface FileRouteTypes {
@@ -110,16 +118,17 @@ export interface FileRouteTypes {
     | '/institucional/equipe'
     | '/institucional/especialidades'
     | '/institucional/sobre'
+    | '/ecommerce/'
     | '/institucional/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/ecommerce'
     | '/institucional/blog'
     | '/institucional/contato'
     | '/institucional/equipe'
     | '/institucional/especialidades'
     | '/institucional/sobre'
+    | '/ecommerce'
     | '/institucional'
   id:
     | '__root__'
@@ -131,12 +140,13 @@ export interface FileRouteTypes {
     | '/institucional/equipe'
     | '/institucional/especialidades'
     | '/institucional/sobre'
+    | '/ecommerce/'
     | '/institucional/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  EcommerceRoute: typeof EcommerceRoute
+  EcommerceRoute: typeof EcommerceRouteWithChildren
   InstitucionalRoute: typeof InstitucionalRouteWithChildren
 }
 
@@ -169,6 +179,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/institucional/'
       preLoaderRoute: typeof InstitucionalIndexRouteImport
       parentRoute: typeof InstitucionalRoute
+    }
+    '/ecommerce/': {
+      id: '/ecommerce/'
+      path: '/'
+      fullPath: '/ecommerce/'
+      preLoaderRoute: typeof EcommerceIndexRouteImport
+      parentRoute: typeof EcommerceRoute
     }
     '/institucional/sobre': {
       id: '/institucional/sobre'
@@ -208,6 +225,18 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface EcommerceRouteChildren {
+  EcommerceIndexRoute: typeof EcommerceIndexRoute
+}
+
+const EcommerceRouteChildren: EcommerceRouteChildren = {
+  EcommerceIndexRoute: EcommerceIndexRoute,
+}
+
+const EcommerceRouteWithChildren = EcommerceRoute._addFileChildren(
+  EcommerceRouteChildren,
+)
+
 interface InstitucionalRouteChildren {
   InstitucionalBlogRoute: typeof InstitucionalBlogRoute
   InstitucionalContatoRoute: typeof InstitucionalContatoRoute
@@ -232,7 +261,7 @@ const InstitucionalRouteWithChildren = InstitucionalRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  EcommerceRoute: EcommerceRoute,
+  EcommerceRoute: EcommerceRouteWithChildren,
   InstitucionalRoute: InstitucionalRouteWithChildren,
 }
 export const routeTree = rootRouteImport
