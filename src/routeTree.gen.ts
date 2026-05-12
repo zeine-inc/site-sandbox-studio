@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as InstitucionalRouteImport } from './routes/institucional'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InstitucionalIndexRouteImport } from './routes/institucional.index'
+import { Route as InstitucionalSobreRouteImport } from './routes/institucional.sobre'
 
 const InstitucionalRoute = InstitucionalRouteImport.update({
   id: '/institucional',
@@ -28,28 +29,41 @@ const InstitucionalIndexRoute = InstitucionalIndexRouteImport.update({
   path: '/',
   getParentRoute: () => InstitucionalRoute,
 } as any)
+const InstitucionalSobreRoute = InstitucionalSobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => InstitucionalRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/institucional': typeof InstitucionalRouteWithChildren
+  '/institucional/sobre': typeof InstitucionalSobreRoute
   '/institucional/': typeof InstitucionalIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/institucional/sobre': typeof InstitucionalSobreRoute
   '/institucional': typeof InstitucionalIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/institucional': typeof InstitucionalRouteWithChildren
+  '/institucional/sobre': typeof InstitucionalSobreRoute
   '/institucional/': typeof InstitucionalIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/institucional' | '/institucional/'
+  fullPaths: '/' | '/institucional' | '/institucional/sobre' | '/institucional/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/institucional'
-  id: '__root__' | '/' | '/institucional' | '/institucional/'
+  to: '/' | '/institucional/sobre' | '/institucional'
+  id:
+    | '__root__'
+    | '/'
+    | '/institucional'
+    | '/institucional/sobre'
+    | '/institucional/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -80,14 +94,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InstitucionalIndexRouteImport
       parentRoute: typeof InstitucionalRoute
     }
+    '/institucional/sobre': {
+      id: '/institucional/sobre'
+      path: '/sobre'
+      fullPath: '/institucional/sobre'
+      preLoaderRoute: typeof InstitucionalSobreRouteImport
+      parentRoute: typeof InstitucionalRoute
+    }
   }
 }
 
 interface InstitucionalRouteChildren {
+  InstitucionalSobreRoute: typeof InstitucionalSobreRoute
   InstitucionalIndexRoute: typeof InstitucionalIndexRoute
 }
 
 const InstitucionalRouteChildren: InstitucionalRouteChildren = {
+  InstitucionalSobreRoute: InstitucionalSobreRoute,
   InstitucionalIndexRoute: InstitucionalIndexRoute,
 }
 
