@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as InstitucionalRouteImport } from './routes/institucional'
+import { Route as EcommerceRouteImport } from './routes/ecommerce'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InstitucionalIndexRouteImport } from './routes/institucional.index'
 import { Route as InstitucionalSobreRouteImport } from './routes/institucional.sobre'
@@ -21,6 +22,11 @@ import { Route as InstitucionalBlogRouteImport } from './routes/institucional.bl
 const InstitucionalRoute = InstitucionalRouteImport.update({
   id: '/institucional',
   path: '/institucional',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcommerceRoute = EcommerceRouteImport.update({
+  id: '/ecommerce',
+  path: '/ecommerce',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -62,6 +68,7 @@ const InstitucionalBlogRoute = InstitucionalBlogRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ecommerce': typeof EcommerceRoute
   '/institucional': typeof InstitucionalRouteWithChildren
   '/institucional/blog': typeof InstitucionalBlogRoute
   '/institucional/contato': typeof InstitucionalContatoRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ecommerce': typeof EcommerceRoute
   '/institucional/blog': typeof InstitucionalBlogRoute
   '/institucional/contato': typeof InstitucionalContatoRoute
   '/institucional/equipe': typeof InstitucionalEquipeRoute
@@ -82,6 +90,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ecommerce': typeof EcommerceRoute
   '/institucional': typeof InstitucionalRouteWithChildren
   '/institucional/blog': typeof InstitucionalBlogRoute
   '/institucional/contato': typeof InstitucionalContatoRoute
@@ -94,6 +103,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/ecommerce'
     | '/institucional'
     | '/institucional/blog'
     | '/institucional/contato'
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/ecommerce'
     | '/institucional/blog'
     | '/institucional/contato'
     | '/institucional/equipe'
@@ -113,6 +124,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/ecommerce'
     | '/institucional'
     | '/institucional/blog'
     | '/institucional/contato'
@@ -124,6 +136,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EcommerceRoute: typeof EcommerceRoute
   InstitucionalRoute: typeof InstitucionalRouteWithChildren
 }
 
@@ -134,6 +147,13 @@ declare module '@tanstack/react-router' {
       path: '/institucional'
       fullPath: '/institucional'
       preLoaderRoute: typeof InstitucionalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecommerce': {
+      id: '/ecommerce'
+      path: '/ecommerce'
+      fullPath: '/ecommerce'
+      preLoaderRoute: typeof EcommerceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -212,8 +232,19 @@ const InstitucionalRouteWithChildren = InstitucionalRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EcommerceRoute: EcommerceRoute,
   InstitucionalRoute: InstitucionalRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
