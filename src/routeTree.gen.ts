@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as OnepageRouteImport } from './routes/onepage'
 import { Route as LandingRouteImport } from './routes/landing'
 import { Route as InstitucionalRouteImport } from './routes/institucional'
 import { Route as EcommerceRouteImport } from './routes/ecommerce'
@@ -22,6 +23,11 @@ import { Route as InstitucionalContatoRouteImport } from './routes/institucional
 import { Route as InstitucionalBlogRouteImport } from './routes/institucional.blog'
 import { Route as EcommerceProdutoIdRouteImport } from './routes/ecommerce.produto.$id'
 
+const OnepageRoute = OnepageRouteImport.update({
+  id: '/onepage',
+  path: '/onepage',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LandingRoute = LandingRouteImport.update({
   id: '/landing',
   path: '/landing',
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/ecommerce': typeof EcommerceRouteWithChildren
   '/institucional': typeof InstitucionalRouteWithChildren
   '/landing': typeof LandingRoute
+  '/onepage': typeof OnepageRoute
   '/institucional/blog': typeof InstitucionalBlogRoute
   '/institucional/contato': typeof InstitucionalContatoRoute
   '/institucional/equipe': typeof InstitucionalEquipeRoute
@@ -101,6 +108,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/landing': typeof LandingRoute
+  '/onepage': typeof OnepageRoute
   '/institucional/blog': typeof InstitucionalBlogRoute
   '/institucional/contato': typeof InstitucionalContatoRoute
   '/institucional/equipe': typeof InstitucionalEquipeRoute
@@ -116,6 +124,7 @@ export interface FileRoutesById {
   '/ecommerce': typeof EcommerceRouteWithChildren
   '/institucional': typeof InstitucionalRouteWithChildren
   '/landing': typeof LandingRoute
+  '/onepage': typeof OnepageRoute
   '/institucional/blog': typeof InstitucionalBlogRoute
   '/institucional/contato': typeof InstitucionalContatoRoute
   '/institucional/equipe': typeof InstitucionalEquipeRoute
@@ -132,6 +141,7 @@ export interface FileRouteTypes {
     | '/ecommerce'
     | '/institucional'
     | '/landing'
+    | '/onepage'
     | '/institucional/blog'
     | '/institucional/contato'
     | '/institucional/equipe'
@@ -144,6 +154,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/landing'
+    | '/onepage'
     | '/institucional/blog'
     | '/institucional/contato'
     | '/institucional/equipe'
@@ -158,6 +169,7 @@ export interface FileRouteTypes {
     | '/ecommerce'
     | '/institucional'
     | '/landing'
+    | '/onepage'
     | '/institucional/blog'
     | '/institucional/contato'
     | '/institucional/equipe'
@@ -173,10 +185,18 @@ export interface RootRouteChildren {
   EcommerceRoute: typeof EcommerceRouteWithChildren
   InstitucionalRoute: typeof InstitucionalRouteWithChildren
   LandingRoute: typeof LandingRoute
+  OnepageRoute: typeof OnepageRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/onepage': {
+      id: '/onepage'
+      path: '/onepage'
+      fullPath: '/onepage'
+      preLoaderRoute: typeof OnepageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/landing': {
       id: '/landing'
       path: '/landing'
@@ -305,6 +325,7 @@ const rootRouteChildren: RootRouteChildren = {
   EcommerceRoute: EcommerceRouteWithChildren,
   InstitucionalRoute: InstitucionalRouteWithChildren,
   LandingRoute: LandingRoute,
+  OnepageRoute: OnepageRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
