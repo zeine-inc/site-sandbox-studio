@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, ChevronLeft } from "lucide-react";
-import { findProduct, PRODUCTS, useCart } from "@/components/ecommerce/store";
+import { findProduct, useCart, type Product } from "@/components/ecommerce/store";
 
 export const Route = createFileRoute("/ecommerce/produto/$id")({
   loader: ({ params }) => {
