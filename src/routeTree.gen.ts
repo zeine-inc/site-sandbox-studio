@@ -19,6 +19,7 @@ import { Route as InstitucionalEspecialidadesRouteImport } from './routes/instit
 import { Route as InstitucionalEquipeRouteImport } from './routes/institucional.equipe'
 import { Route as InstitucionalContatoRouteImport } from './routes/institucional.contato'
 import { Route as InstitucionalBlogRouteImport } from './routes/institucional.blog'
+import { Route as EcommerceProdutoIdRouteImport } from './routes/ecommerce.produto.$id'
 
 const InstitucionalRoute = InstitucionalRouteImport.update({
   id: '/institucional',
@@ -71,6 +72,11 @@ const InstitucionalBlogRoute = InstitucionalBlogRouteImport.update({
   path: '/blog',
   getParentRoute: () => InstitucionalRoute,
 } as any)
+const EcommerceProdutoIdRoute = EcommerceProdutoIdRouteImport.update({
+  id: '/produto/$id',
+  path: '/produto/$id',
+  getParentRoute: () => EcommerceRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/institucional/sobre': typeof InstitucionalSobreRoute
   '/ecommerce/': typeof EcommerceIndexRoute
   '/institucional/': typeof InstitucionalIndexRoute
+  '/ecommerce/produto/$id': typeof EcommerceProdutoIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -93,6 +100,7 @@ export interface FileRoutesByTo {
   '/institucional/sobre': typeof InstitucionalSobreRoute
   '/ecommerce': typeof EcommerceIndexRoute
   '/institucional': typeof InstitucionalIndexRoute
+  '/ecommerce/produto/$id': typeof EcommerceProdutoIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -106,6 +114,7 @@ export interface FileRoutesById {
   '/institucional/sobre': typeof InstitucionalSobreRoute
   '/ecommerce/': typeof EcommerceIndexRoute
   '/institucional/': typeof InstitucionalIndexRoute
+  '/ecommerce/produto/$id': typeof EcommerceProdutoIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
     | '/institucional/sobre'
     | '/ecommerce/'
     | '/institucional/'
+    | '/ecommerce/produto/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -130,6 +140,7 @@ export interface FileRouteTypes {
     | '/institucional/sobre'
     | '/ecommerce'
     | '/institucional'
+    | '/ecommerce/produto/$id'
   id:
     | '__root__'
     | '/'
@@ -142,6 +153,7 @@ export interface FileRouteTypes {
     | '/institucional/sobre'
     | '/ecommerce/'
     | '/institucional/'
+    | '/ecommerce/produto/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -222,15 +234,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InstitucionalBlogRouteImport
       parentRoute: typeof InstitucionalRoute
     }
+    '/ecommerce/produto/$id': {
+      id: '/ecommerce/produto/$id'
+      path: '/produto/$id'
+      fullPath: '/ecommerce/produto/$id'
+      preLoaderRoute: typeof EcommerceProdutoIdRouteImport
+      parentRoute: typeof EcommerceRoute
+    }
   }
 }
 
 interface EcommerceRouteChildren {
   EcommerceIndexRoute: typeof EcommerceIndexRoute
+  EcommerceProdutoIdRoute: typeof EcommerceProdutoIdRoute
 }
 
 const EcommerceRouteChildren: EcommerceRouteChildren = {
   EcommerceIndexRoute: EcommerceIndexRoute,
+  EcommerceProdutoIdRoute: EcommerceProdutoIdRoute,
 }
 
 const EcommerceRouteWithChildren = EcommerceRoute._addFileChildren(
