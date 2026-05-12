@@ -9,38 +9,215 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as OnepageRouteImport } from './routes/onepage'
+import { Route as LandingRouteImport } from './routes/landing'
+import { Route as InstitucionalRouteImport } from './routes/institucional'
+import { Route as EcommerceRouteImport } from './routes/ecommerce'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as InstitucionalIndexRouteImport } from './routes/institucional.index'
+import { Route as EcommerceIndexRouteImport } from './routes/ecommerce.index'
+import { Route as InstitucionalSobreRouteImport } from './routes/institucional.sobre'
+import { Route as InstitucionalEspecialidadesRouteImport } from './routes/institucional.especialidades'
+import { Route as InstitucionalEquipeRouteImport } from './routes/institucional.equipe'
+import { Route as InstitucionalContatoRouteImport } from './routes/institucional.contato'
+import { Route as InstitucionalBlogRouteImport } from './routes/institucional.blog'
+import { Route as EcommerceProdutoIdRouteImport } from './routes/ecommerce.produto.$id'
 
+const OnepageRoute = OnepageRouteImport.update({
+  id: '/onepage',
+  path: '/onepage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LandingRoute = LandingRouteImport.update({
+  id: '/landing',
+  path: '/landing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InstitucionalRoute = InstitucionalRouteImport.update({
+  id: '/institucional',
+  path: '/institucional',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcommerceRoute = EcommerceRouteImport.update({
+  id: '/ecommerce',
+  path: '/ecommerce',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InstitucionalIndexRoute = InstitucionalIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => InstitucionalRoute,
+} as any)
+const EcommerceIndexRoute = EcommerceIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EcommerceRoute,
+} as any)
+const InstitucionalSobreRoute = InstitucionalSobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => InstitucionalRoute,
+} as any)
+const InstitucionalEspecialidadesRoute =
+  InstitucionalEspecialidadesRouteImport.update({
+    id: '/especialidades',
+    path: '/especialidades',
+    getParentRoute: () => InstitucionalRoute,
+  } as any)
+const InstitucionalEquipeRoute = InstitucionalEquipeRouteImport.update({
+  id: '/equipe',
+  path: '/equipe',
+  getParentRoute: () => InstitucionalRoute,
+} as any)
+const InstitucionalContatoRoute = InstitucionalContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => InstitucionalRoute,
+} as any)
+const InstitucionalBlogRoute = InstitucionalBlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => InstitucionalRoute,
+} as any)
+const EcommerceProdutoIdRoute = EcommerceProdutoIdRouteImport.update({
+  id: '/produto/$id',
+  path: '/produto/$id',
+  getParentRoute: () => EcommerceRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ecommerce': typeof EcommerceRouteWithChildren
+  '/institucional': typeof InstitucionalRouteWithChildren
+  '/landing': typeof LandingRoute
+  '/onepage': typeof OnepageRoute
+  '/institucional/blog': typeof InstitucionalBlogRoute
+  '/institucional/contato': typeof InstitucionalContatoRoute
+  '/institucional/equipe': typeof InstitucionalEquipeRoute
+  '/institucional/especialidades': typeof InstitucionalEspecialidadesRoute
+  '/institucional/sobre': typeof InstitucionalSobreRoute
+  '/ecommerce/': typeof EcommerceIndexRoute
+  '/institucional/': typeof InstitucionalIndexRoute
+  '/ecommerce/produto/$id': typeof EcommerceProdutoIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/landing': typeof LandingRoute
+  '/onepage': typeof OnepageRoute
+  '/institucional/blog': typeof InstitucionalBlogRoute
+  '/institucional/contato': typeof InstitucionalContatoRoute
+  '/institucional/equipe': typeof InstitucionalEquipeRoute
+  '/institucional/especialidades': typeof InstitucionalEspecialidadesRoute
+  '/institucional/sobre': typeof InstitucionalSobreRoute
+  '/ecommerce': typeof EcommerceIndexRoute
+  '/institucional': typeof InstitucionalIndexRoute
+  '/ecommerce/produto/$id': typeof EcommerceProdutoIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ecommerce': typeof EcommerceRouteWithChildren
+  '/institucional': typeof InstitucionalRouteWithChildren
+  '/landing': typeof LandingRoute
+  '/onepage': typeof OnepageRoute
+  '/institucional/blog': typeof InstitucionalBlogRoute
+  '/institucional/contato': typeof InstitucionalContatoRoute
+  '/institucional/equipe': typeof InstitucionalEquipeRoute
+  '/institucional/especialidades': typeof InstitucionalEspecialidadesRoute
+  '/institucional/sobre': typeof InstitucionalSobreRoute
+  '/ecommerce/': typeof EcommerceIndexRoute
+  '/institucional/': typeof InstitucionalIndexRoute
+  '/ecommerce/produto/$id': typeof EcommerceProdutoIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/ecommerce'
+    | '/institucional'
+    | '/landing'
+    | '/onepage'
+    | '/institucional/blog'
+    | '/institucional/contato'
+    | '/institucional/equipe'
+    | '/institucional/especialidades'
+    | '/institucional/sobre'
+    | '/ecommerce/'
+    | '/institucional/'
+    | '/ecommerce/produto/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/landing'
+    | '/onepage'
+    | '/institucional/blog'
+    | '/institucional/contato'
+    | '/institucional/equipe'
+    | '/institucional/especialidades'
+    | '/institucional/sobre'
+    | '/ecommerce'
+    | '/institucional'
+    | '/ecommerce/produto/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/ecommerce'
+    | '/institucional'
+    | '/landing'
+    | '/onepage'
+    | '/institucional/blog'
+    | '/institucional/contato'
+    | '/institucional/equipe'
+    | '/institucional/especialidades'
+    | '/institucional/sobre'
+    | '/ecommerce/'
+    | '/institucional/'
+    | '/ecommerce/produto/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EcommerceRoute: typeof EcommerceRouteWithChildren
+  InstitucionalRoute: typeof InstitucionalRouteWithChildren
+  LandingRoute: typeof LandingRoute
+  OnepageRoute: typeof OnepageRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/onepage': {
+      id: '/onepage'
+      path: '/onepage'
+      fullPath: '/onepage'
+      preLoaderRoute: typeof OnepageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/landing': {
+      id: '/landing'
+      path: '/landing'
+      fullPath: '/landing'
+      preLoaderRoute: typeof LandingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/institucional': {
+      id: '/institucional'
+      path: '/institucional'
+      fullPath: '/institucional'
+      preLoaderRoute: typeof InstitucionalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecommerce': {
+      id: '/ecommerce'
+      path: '/ecommerce'
+      fullPath: '/ecommerce'
+      preLoaderRoute: typeof EcommerceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +225,108 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/institucional/': {
+      id: '/institucional/'
+      path: '/'
+      fullPath: '/institucional/'
+      preLoaderRoute: typeof InstitucionalIndexRouteImport
+      parentRoute: typeof InstitucionalRoute
+    }
+    '/ecommerce/': {
+      id: '/ecommerce/'
+      path: '/'
+      fullPath: '/ecommerce/'
+      preLoaderRoute: typeof EcommerceIndexRouteImport
+      parentRoute: typeof EcommerceRoute
+    }
+    '/institucional/sobre': {
+      id: '/institucional/sobre'
+      path: '/sobre'
+      fullPath: '/institucional/sobre'
+      preLoaderRoute: typeof InstitucionalSobreRouteImport
+      parentRoute: typeof InstitucionalRoute
+    }
+    '/institucional/especialidades': {
+      id: '/institucional/especialidades'
+      path: '/especialidades'
+      fullPath: '/institucional/especialidades'
+      preLoaderRoute: typeof InstitucionalEspecialidadesRouteImport
+      parentRoute: typeof InstitucionalRoute
+    }
+    '/institucional/equipe': {
+      id: '/institucional/equipe'
+      path: '/equipe'
+      fullPath: '/institucional/equipe'
+      preLoaderRoute: typeof InstitucionalEquipeRouteImport
+      parentRoute: typeof InstitucionalRoute
+    }
+    '/institucional/contato': {
+      id: '/institucional/contato'
+      path: '/contato'
+      fullPath: '/institucional/contato'
+      preLoaderRoute: typeof InstitucionalContatoRouteImport
+      parentRoute: typeof InstitucionalRoute
+    }
+    '/institucional/blog': {
+      id: '/institucional/blog'
+      path: '/blog'
+      fullPath: '/institucional/blog'
+      preLoaderRoute: typeof InstitucionalBlogRouteImport
+      parentRoute: typeof InstitucionalRoute
+    }
+    '/ecommerce/produto/$id': {
+      id: '/ecommerce/produto/$id'
+      path: '/produto/$id'
+      fullPath: '/ecommerce/produto/$id'
+      preLoaderRoute: typeof EcommerceProdutoIdRouteImport
+      parentRoute: typeof EcommerceRoute
+    }
   }
 }
 
+interface EcommerceRouteChildren {
+  EcommerceIndexRoute: typeof EcommerceIndexRoute
+  EcommerceProdutoIdRoute: typeof EcommerceProdutoIdRoute
+}
+
+const EcommerceRouteChildren: EcommerceRouteChildren = {
+  EcommerceIndexRoute: EcommerceIndexRoute,
+  EcommerceProdutoIdRoute: EcommerceProdutoIdRoute,
+}
+
+const EcommerceRouteWithChildren = EcommerceRoute._addFileChildren(
+  EcommerceRouteChildren,
+)
+
+interface InstitucionalRouteChildren {
+  InstitucionalBlogRoute: typeof InstitucionalBlogRoute
+  InstitucionalContatoRoute: typeof InstitucionalContatoRoute
+  InstitucionalEquipeRoute: typeof InstitucionalEquipeRoute
+  InstitucionalEspecialidadesRoute: typeof InstitucionalEspecialidadesRoute
+  InstitucionalSobreRoute: typeof InstitucionalSobreRoute
+  InstitucionalIndexRoute: typeof InstitucionalIndexRoute
+}
+
+const InstitucionalRouteChildren: InstitucionalRouteChildren = {
+  InstitucionalBlogRoute: InstitucionalBlogRoute,
+  InstitucionalContatoRoute: InstitucionalContatoRoute,
+  InstitucionalEquipeRoute: InstitucionalEquipeRoute,
+  InstitucionalEspecialidadesRoute: InstitucionalEspecialidadesRoute,
+  InstitucionalSobreRoute: InstitucionalSobreRoute,
+  InstitucionalIndexRoute: InstitucionalIndexRoute,
+}
+
+const InstitucionalRouteWithChildren = InstitucionalRoute._addFileChildren(
+  InstitucionalRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EcommerceRoute: EcommerceRouteWithChildren,
+  InstitucionalRoute: InstitucionalRouteWithChildren,
+  LandingRoute: LandingRoute,
+  OnepageRoute: OnepageRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
