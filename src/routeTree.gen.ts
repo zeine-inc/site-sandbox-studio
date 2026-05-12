@@ -13,6 +13,7 @@ import { Route as InstitucionalRouteImport } from './routes/institucional'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InstitucionalIndexRouteImport } from './routes/institucional.index'
 import { Route as InstitucionalSobreRouteImport } from './routes/institucional.sobre'
+import { Route as InstitucionalEspecialidadesRouteImport } from './routes/institucional.especialidades'
 
 const InstitucionalRoute = InstitucionalRouteImport.update({
   id: '/institucional',
@@ -34,15 +35,23 @@ const InstitucionalSobreRoute = InstitucionalSobreRouteImport.update({
   path: '/sobre',
   getParentRoute: () => InstitucionalRoute,
 } as any)
+const InstitucionalEspecialidadesRoute =
+  InstitucionalEspecialidadesRouteImport.update({
+    id: '/especialidades',
+    path: '/especialidades',
+    getParentRoute: () => InstitucionalRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/institucional': typeof InstitucionalRouteWithChildren
+  '/institucional/especialidades': typeof InstitucionalEspecialidadesRoute
   '/institucional/sobre': typeof InstitucionalSobreRoute
   '/institucional/': typeof InstitucionalIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/institucional/especialidades': typeof InstitucionalEspecialidadesRoute
   '/institucional/sobre': typeof InstitucionalSobreRoute
   '/institucional': typeof InstitucionalIndexRoute
 }
@@ -50,18 +59,29 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/institucional': typeof InstitucionalRouteWithChildren
+  '/institucional/especialidades': typeof InstitucionalEspecialidadesRoute
   '/institucional/sobre': typeof InstitucionalSobreRoute
   '/institucional/': typeof InstitucionalIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/institucional' | '/institucional/sobre' | '/institucional/'
+  fullPaths:
+    | '/'
+    | '/institucional'
+    | '/institucional/especialidades'
+    | '/institucional/sobre'
+    | '/institucional/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/institucional/sobre' | '/institucional'
+  to:
+    | '/'
+    | '/institucional/especialidades'
+    | '/institucional/sobre'
+    | '/institucional'
   id:
     | '__root__'
     | '/'
     | '/institucional'
+    | '/institucional/especialidades'
     | '/institucional/sobre'
     | '/institucional/'
   fileRoutesById: FileRoutesById
@@ -101,15 +121,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InstitucionalSobreRouteImport
       parentRoute: typeof InstitucionalRoute
     }
+    '/institucional/especialidades': {
+      id: '/institucional/especialidades'
+      path: '/especialidades'
+      fullPath: '/institucional/especialidades'
+      preLoaderRoute: typeof InstitucionalEspecialidadesRouteImport
+      parentRoute: typeof InstitucionalRoute
+    }
   }
 }
 
 interface InstitucionalRouteChildren {
+  InstitucionalEspecialidadesRoute: typeof InstitucionalEspecialidadesRoute
   InstitucionalSobreRoute: typeof InstitucionalSobreRoute
   InstitucionalIndexRoute: typeof InstitucionalIndexRoute
 }
 
 const InstitucionalRouteChildren: InstitucionalRouteChildren = {
+  InstitucionalEspecialidadesRoute: InstitucionalEspecialidadesRoute,
   InstitucionalSobreRoute: InstitucionalSobreRoute,
   InstitucionalIndexRoute: InstitucionalIndexRoute,
 }
