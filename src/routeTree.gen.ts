@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as InstitucionalRouteImport } from './routes/institucional'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as InstitucionalIndexRouteImport } from './routes/institucional.index'
 
 const InstitucionalRoute = InstitucionalRouteImport.update({
   id: '/institucional',
@@ -22,31 +23,38 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InstitucionalIndexRoute = InstitucionalIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => InstitucionalRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/institucional': typeof InstitucionalRoute
+  '/institucional': typeof InstitucionalRouteWithChildren
+  '/institucional/': typeof InstitucionalIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/institucional': typeof InstitucionalRoute
+  '/institucional': typeof InstitucionalIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/institucional': typeof InstitucionalRoute
+  '/institucional': typeof InstitucionalRouteWithChildren
+  '/institucional/': typeof InstitucionalIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/institucional'
+  fullPaths: '/' | '/institucional' | '/institucional/'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/institucional'
-  id: '__root__' | '/' | '/institucional'
+  id: '__root__' | '/' | '/institucional' | '/institucional/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  InstitucionalRoute: typeof InstitucionalRoute
+  InstitucionalRoute: typeof InstitucionalRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -65,13 +73,42 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/institucional/': {
+      id: '/institucional/'
+      path: '/'
+      fullPath: '/institucional/'
+      preLoaderRoute: typeof InstitucionalIndexRouteImport
+      parentRoute: typeof InstitucionalRoute
+    }
   }
 }
 
+interface InstitucionalRouteChildren {
+  InstitucionalIndexRoute: typeof InstitucionalIndexRoute
+}
+
+const InstitucionalRouteChildren: InstitucionalRouteChildren = {
+  InstitucionalIndexRoute: InstitucionalIndexRoute,
+}
+
+const InstitucionalRouteWithChildren = InstitucionalRoute._addFileChildren(
+  InstitucionalRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  InstitucionalRoute: InstitucionalRoute,
+  InstitucionalRoute: InstitucionalRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
