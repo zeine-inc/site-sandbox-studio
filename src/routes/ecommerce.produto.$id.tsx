@@ -14,12 +14,12 @@ export const Route = createFileRoute("/ecommerce/produto/$id")({
 });
 
 function ProductPage() {
-  const p = Route.useLoaderData();
+  const p = Route.useLoaderData() as Product;
   const { add } = useCart();
-  const [size, setSize] = useState(p.sizes[0]);
-  const [color, setColor] = useState(p.colors[0]);
+  const [size, setSize] = useState<string>(p.sizes[0]);
+  const [color, setColor] = useState<string>(p.colors[0]);
   const [added, setAdded] = useState(false);
-  const combine: Product[] = (p.combine ?? []).map(findProduct).filter((x): x is Product => Boolean(x));
+  const combine: Product[] = (p.combine ?? []).map(findProduct).filter((x: Product | undefined): x is Product => Boolean(x));
 
   return (
     <div className="ni-container py-10">
