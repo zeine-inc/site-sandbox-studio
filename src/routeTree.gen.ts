@@ -15,6 +15,7 @@ import { Route as InstitucionalIndexRouteImport } from './routes/institucional.i
 import { Route as InstitucionalSobreRouteImport } from './routes/institucional.sobre'
 import { Route as InstitucionalEspecialidadesRouteImport } from './routes/institucional.especialidades'
 import { Route as InstitucionalEquipeRouteImport } from './routes/institucional.equipe'
+import { Route as InstitucionalContatoRouteImport } from './routes/institucional.contato'
 import { Route as InstitucionalBlogRouteImport } from './routes/institucional.blog'
 
 const InstitucionalRoute = InstitucionalRouteImport.update({
@@ -48,6 +49,11 @@ const InstitucionalEquipeRoute = InstitucionalEquipeRouteImport.update({
   path: '/equipe',
   getParentRoute: () => InstitucionalRoute,
 } as any)
+const InstitucionalContatoRoute = InstitucionalContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => InstitucionalRoute,
+} as any)
 const InstitucionalBlogRoute = InstitucionalBlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/institucional': typeof InstitucionalRouteWithChildren
   '/institucional/blog': typeof InstitucionalBlogRoute
+  '/institucional/contato': typeof InstitucionalContatoRoute
   '/institucional/equipe': typeof InstitucionalEquipeRoute
   '/institucional/especialidades': typeof InstitucionalEspecialidadesRoute
   '/institucional/sobre': typeof InstitucionalSobreRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/institucional/blog': typeof InstitucionalBlogRoute
+  '/institucional/contato': typeof InstitucionalContatoRoute
   '/institucional/equipe': typeof InstitucionalEquipeRoute
   '/institucional/especialidades': typeof InstitucionalEspecialidadesRoute
   '/institucional/sobre': typeof InstitucionalSobreRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/institucional': typeof InstitucionalRouteWithChildren
   '/institucional/blog': typeof InstitucionalBlogRoute
+  '/institucional/contato': typeof InstitucionalContatoRoute
   '/institucional/equipe': typeof InstitucionalEquipeRoute
   '/institucional/especialidades': typeof InstitucionalEspecialidadesRoute
   '/institucional/sobre': typeof InstitucionalSobreRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/institucional'
     | '/institucional/blog'
+    | '/institucional/contato'
     | '/institucional/equipe'
     | '/institucional/especialidades'
     | '/institucional/sobre'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/institucional/blog'
+    | '/institucional/contato'
     | '/institucional/equipe'
     | '/institucional/especialidades'
     | '/institucional/sobre'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '/'
     | '/institucional'
     | '/institucional/blog'
+    | '/institucional/contato'
     | '/institucional/equipe'
     | '/institucional/especialidades'
     | '/institucional/sobre'
@@ -159,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InstitucionalEquipeRouteImport
       parentRoute: typeof InstitucionalRoute
     }
+    '/institucional/contato': {
+      id: '/institucional/contato'
+      path: '/contato'
+      fullPath: '/institucional/contato'
+      preLoaderRoute: typeof InstitucionalContatoRouteImport
+      parentRoute: typeof InstitucionalRoute
+    }
     '/institucional/blog': {
       id: '/institucional/blog'
       path: '/blog'
@@ -171,6 +190,7 @@ declare module '@tanstack/react-router' {
 
 interface InstitucionalRouteChildren {
   InstitucionalBlogRoute: typeof InstitucionalBlogRoute
+  InstitucionalContatoRoute: typeof InstitucionalContatoRoute
   InstitucionalEquipeRoute: typeof InstitucionalEquipeRoute
   InstitucionalEspecialidadesRoute: typeof InstitucionalEspecialidadesRoute
   InstitucionalSobreRoute: typeof InstitucionalSobreRoute
@@ -179,6 +199,7 @@ interface InstitucionalRouteChildren {
 
 const InstitucionalRouteChildren: InstitucionalRouteChildren = {
   InstitucionalBlogRoute: InstitucionalBlogRoute,
+  InstitucionalContatoRoute: InstitucionalContatoRoute,
   InstitucionalEquipeRoute: InstitucionalEquipeRoute,
   InstitucionalEspecialidadesRoute: InstitucionalEspecialidadesRoute,
   InstitucionalSobreRoute: InstitucionalSobreRoute,
