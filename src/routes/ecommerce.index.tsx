@@ -10,16 +10,16 @@ export const Route = createFileRoute("/ecommerce/")({
 });
 
 const slides = [
-  { t: "Coleção Solstício", s: "O verão como ele deveria ser: leve, sensorial, livre.", img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1600&q=80&auto=format" },
-  { t: "Edição Linho Lavado", s: "Tecidos que melhoram a cada uso. Caimento que abraça.", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80&auto=format" },
-  { t: "Acessórios em Latão", s: "Esculturas para vestir, criadas em parceria com Nina Martinelli.", img: "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=1600&q=80&auto=format" },
+  { t: "Coleção Solstício", s: "O verão como ele deveria ser: leve, sensorial, livre.", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1800&q=85&auto=format" },
+  { t: "Edição Linho Lavado", s: "Tecidos que melhoram a cada uso. Caimento que abraça.", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1800&q=85&auto=format" },
+  { t: "Acessórios em Latão", s: "Esculturas para vestir, criadas em parceria com Nina Martinelli.", img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1800&q=85&auto=format" },
 ];
 
 const cats = [
-  { name: "Vestidos", img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80&auto=format" },
-  { name: "Blusas", img: "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&q=80&auto=format" },
-  { name: "Calças", img: "https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=600&q=80&auto=format" },
-  { name: "Acessórios", img: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=600&q=80&auto=format" },
+  { name: "Vestidos", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=700&q=85&auto=format" },
+  { name: "Blusas", img: "https://images.unsplash.com/photo-1551048632-24e444b48a3e?w=700&q=85&auto=format" },
+  { name: "Calças", img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=700&q=85&auto=format" },
+  { name: "Acessórios", img: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=700&q=85&auto=format" },
 ];
 
 function EcomHome() {
