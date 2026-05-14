@@ -86,8 +86,8 @@ function Hub() {
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-5 text-base sm:text-lg text-ni-muted max-w-2xl mx-auto text-balance"
           >
-            Experimente os <strong className="text-ni-ink">4 formatos</strong> que a Nova Infortel constrói sob medida.
-            Não compre site no escuro — navegue, toque, sinta cada formato e escolha o que faz sentido pra você.
+            Experimente nossos formatos que a <strong className="text-ni-ink">Nova Infortel</strong> constrói sob medida.
+            Templates validados, práticos e completos — escolha o que faz mais sentido pra você.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
