@@ -60,6 +60,23 @@ function EcomHome() {
         </div>
       </section>
 
+      {/* Benefícios bar */}
+      <section className="bg-w2-ink text-white border-b border-white/10">
+        <div className="ni-container py-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-[11px] sm:text-xs">
+          {[
+            { i: Truck, t: "Frete grátis", s: "Acima de R$ 399" },
+            { i: RefreshCw, t: "Troca fácil", s: "Em até 30 dias" },
+            { i: ShieldCheck, t: "Compra segura", s: "Pix · cartão até 6x" },
+            { i: Sparkles, t: "Feito à mão", s: "Pequenos lotes" },
+          ].map((b) => (
+            <div key={b.t} className="flex items-center gap-3 justify-center">
+              <b.i className="size-4 text-w2-primary" />
+              <div className="leading-tight"><div className="font-semibold uppercase tracking-wider">{b.t}</div><div className="text-white/55 text-[10px]">{b.s}</div></div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Categorias */}
       <section className="ni-container py-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
