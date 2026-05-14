@@ -30,16 +30,16 @@ export function Shell({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen flex flex-col bg-ni-bg text-ni-ink">
       {/* Demo strip */}
       {active && (
-        <div className="bg-ni-ink text-white text-[11px] sm:text-xs py-1.5 px-4 text-center tracking-wide">
+        <div className="bg-ni-ink text-white text-[10px] sm:text-xs py-1.5 px-3 sm:px-4 text-center tracking-wide leading-snug">
           Você está visualizando uma demonstração de <span className="font-semibold">site {active.label.toLowerCase()}</span> construído pela Nova Infortel.
         </div>
       )}
 
       {/* Header */}
       <header className="sticky top-0 z-40 backdrop-blur-md bg-white/85 border-b border-black/5">
-        <div className="ni-container flex items-center justify-between h-16 gap-4">
-          <Link to="/" className="flex items-center shrink-0">
-            <img src={logoUrl} alt="Nova Infortel — Plataforma de Negócios" className="h-9 sm:h-10 w-auto" />
+        <div className="ni-container flex items-center justify-between h-14 sm:h-16 gap-2 sm:gap-4">
+          <Link to="/" className="flex items-center shrink-0 min-w-0">
+            <img src={logoUrl} alt="Nova Infortel — Plataforma de Negócios" className="h-8 sm:h-10 w-auto" />
           </Link>
 
           {/* World tabs (desktop) */}
@@ -69,9 +69,9 @@ export function Shell({ children }: { children: React.ReactNode }) {
           <select
             value={active?.path ?? ""}
             onChange={(e) => navigate({ to: e.target.value || "/" })}
-            className="lg:hidden text-xs bg-black/5 rounded-full px-3 py-1.5 border-none outline-none"
+            className="lg:hidden text-[11px] sm:text-xs bg-black/5 rounded-full px-2.5 sm:px-3 py-1.5 border-none outline-none max-w-[140px] truncate"
           >
-            <option value="">— escolher formato —</option>
+            <option value="">— formato —</option>
             {WORLDS.map((w) => <option key={w.id} value={w.path}>{w.label}</option>)}
           </select>
 
