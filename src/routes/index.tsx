@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Zap, ShieldCheck, Headphones } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, ShieldCheck, Headphones, Wand2 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Hub,
@@ -18,8 +18,8 @@ const cards = [
     path: "/institucional",
     title: "Site Institucional",
     desc: "Para clínicas, escritórios, construtoras e empresas B2B que precisam transmitir autoridade e conquistar a confiança do cliente.",
-    img: "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=900&q=80&auto=format",
-    accent: "from-emerald-700 to-emerald-900",
+    img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=80&auto=format",
+    accent: "from-ni-accent to-ni-ink",
     tag: "5 a 6 páginas · CMS",
   },
   {
@@ -27,8 +27,8 @@ const cards = [
     path: "/ecommerce",
     title: "E-commerce / Loja Virtual",
     desc: "Para boutiques, marcas autorais e varejo que querem vender online com cara de marca premium e checkout simples.",
-    img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=80&auto=format",
-    accent: "from-orange-600 to-rose-700",
+    img: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&q=80&auto=format",
+    accent: "from-ni-warm to-orange-700",
     tag: "Catálogo · Carrinho · Pagamentos",
   },
   {
@@ -36,8 +36,8 @@ const cards = [
     path: "/landing",
     title: "Landing Page de Conversão",
     desc: "Para cursos, infoprodutos, eventos e ofertas pontuais. Estrutura matadora pensada do primeiro pixel à última CTA.",
-    img: "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=900&q=80&auto=format",
-    accent: "from-indigo-900 to-blue-700",
+    img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=900&q=80&auto=format",
+    accent: "from-ni-ink to-ni-accent",
     tag: "Single page · Alta conversão",
   },
   {
@@ -45,8 +45,8 @@ const cards = [
     path: "/onepage",
     title: "One Page",
     desc: "Para restaurantes, autônomos, portfólios e pequenos negócios locais. Tudo o que importa em uma página linda e enxuta.",
-    img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&auto=format",
-    accent: "from-stone-700 to-amber-800",
+    img: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=900&q=80&auto=format",
+    accent: "from-ni-warm to-amber-800",
     tag: "Página única · Mobile-first",
   },
 ];
@@ -64,15 +64,15 @@ function Hub() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute -top-40 -left-20 size-[500px] rounded-full bg-ni-accent/15 blur-3xl" />
-          <div className="absolute top-20 -right-20 size-[400px] rounded-full bg-emerald-200/50 blur-3xl" />
+          <div className="absolute -top-40 -left-20 size-[500px] rounded-full bg-ni-accent/20 blur-3xl" />
+          <div className="absolute top-20 -right-20 size-[400px] rounded-full bg-ni-warm/30 blur-3xl" />
         </div>
         <div className="ni-container pt-16 sm:pt-24 pb-12 sm:pb-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 text-xs font-medium bg-white border rounded-full px-3 py-1 text-ni-muted"
+            className="inline-flex items-center gap-2 text-xs font-medium bg-white border border-ni-accent/20 rounded-full px-3 py-1 text-ni-ink/80"
           >
-            <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="size-1.5 rounded-full bg-ni-warm animate-pulse" />
             Showcase interativo · feito pela Nova Infortel
           </motion.div>
           <motion.h1
@@ -80,7 +80,7 @@ function Hub() {
             className="mt-6 font-display-serif font-bold text-balance leading-[1.05] tracking-tight"
             style={{ fontSize: "clamp(2.25rem, 5vw, 4.25rem)" }}
           >
-            Qual site é o ideal<br className="hidden sm:block" /> para o seu negócio?
+            Qual site é o ideal<br className="hidden sm:block" /> para o <span className="text-ni-accent">seu negócio</span>?
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
@@ -93,10 +93,10 @@ function Hub() {
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-8 flex flex-wrap justify-center gap-3"
           >
-            <a href="#formatos" className="inline-flex items-center gap-2 bg-ni-ink text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-semibold hover:bg-ni-accent transition">
+            <a href="#formatos" className="inline-flex items-center gap-2 bg-ni-accent text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-semibold hover:bg-ni-ink transition shadow-lg shadow-ni-accent/20">
               Explorar formatos <ArrowRight className="size-4" />
             </a>
-            <a href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel." target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white border px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-semibold hover:border-ni-ink transition">
+            <a href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel." target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white border border-ni-ink/15 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-semibold hover:border-ni-warm hover:text-ni-warm transition">
               Falar com um especialista
             </a>
           </motion.div>
@@ -114,16 +114,16 @@ function Hub() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
             >
-              <Link to={c.path} className="group block rounded-2xl overflow-hidden bg-white border lift">
+              <Link to={c.path} className="group block rounded-2xl overflow-hidden bg-white border border-ni-ink/5 lift">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <img src={c.img} alt={c.title} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" />
-                  <div className={`absolute inset-0 bg-gradient-to-tr ${c.accent} opacity-30 mix-blend-multiply`} />
-                  <span className="absolute top-3 left-3 text-[10px] font-semibold bg-white/95 px-2 py-1 rounded-full">{c.tag}</span>
+                  <div className={`absolute inset-0 bg-gradient-to-tr ${c.accent} opacity-40 mix-blend-multiply`} />
+                  <span className="absolute top-3 left-3 text-[10px] font-semibold bg-white/95 text-ni-ink px-2.5 py-1 rounded-full">{c.tag}</span>
                 </div>
                 <div className="p-5 sm:p-6">
-                  <h3 className="text-xl font-display-serif font-semibold tracking-tight">{c.title}</h3>
+                  <h3 className="text-xl font-display-serif font-semibold tracking-tight text-ni-ink">{c.title}</h3>
                   <p className="text-sm text-ni-muted mt-2">{c.desc}</p>
-                  <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-ni-accent">
+                  <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-ni-accent group-hover:text-ni-warm transition">
                     Explorar este formato <ArrowRight className="size-4 group-hover:translate-x-1 transition" />
                   </div>
                 </div>
@@ -134,11 +134,11 @@ function Hub() {
       </section>
 
       {/* Por que Nova Infortel */}
-      <section className="bg-white border-y">
+      <section className="bg-white border-y border-ni-ink/5">
         <div className="ni-container py-16">
           <div className="text-center max-w-2xl mx-auto">
-            <p className="text-xs font-semibold tracking-widest text-ni-accent uppercase">Por que Nova Infortel</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-display-serif font-semibold tracking-tight text-balance">
+            <p className="text-xs font-semibold tracking-widest text-ni-warm uppercase">Por que Nova Infortel</p>
+            <h2 className="mt-2 text-3xl sm:text-4xl font-display-serif font-semibold tracking-tight text-balance text-ni-ink">
               Sites que vendem, atendem e crescem com seu negócio.
             </h2>
           </div>
@@ -150,17 +150,46 @@ function Hub() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="rounded-xl border p-5"
+                className="rounded-xl border border-ni-ink/10 p-5 hover:border-ni-accent/40 transition"
               >
-                <div className="size-10 rounded-lg bg-ni-accent/10 text-ni-accent grid place-items-center">
+                <div className={`size-10 rounded-lg grid place-items-center ${i % 2 === 0 ? "bg-ni-accent/10 text-ni-accent" : "bg-ni-warm/15 text-ni-warm"}`}>
                   <b.icon className="size-5" />
                 </div>
-                <h3 className="mt-4 font-semibold">{b.title}</h3>
+                <h3 className="mt-4 font-semibold text-ni-ink">{b.title}</h3>
                 <p className="text-sm text-ni-muted mt-1">{b.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Mais formatos sob medida */}
+      <section className="ni-container py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+          className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-ni-ink via-ni-ink to-ni-accent text-white p-8 sm:p-12"
+        >
+          <div className="absolute -top-20 -right-20 size-72 rounded-full bg-ni-warm/30 blur-3xl" />
+          <div className="absolute -bottom-24 -left-16 size-72 rounded-full bg-ni-accent/30 blur-3xl" />
+          <div className="relative max-w-2xl">
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur rounded-full px-3 py-1 text-xs font-medium">
+              <Wand2 className="size-3.5 text-ni-warm" /> Em desenvolvimento
+            </div>
+            <h2 className="mt-4 text-3xl sm:text-4xl font-display-serif font-semibold tracking-tight text-balance">
+              Não encontrou um formato que encaixe agora?
+            </h2>
+            <p className="mt-4 text-white/85 leading-relaxed">
+              Estamos desenvolvendo <strong className="text-ni-warm">novos formatos</strong> a cada mês — sistemas internos, áreas de membros, portais, agendamento e muito mais. Se nenhum dos modelos atuais resolve seu caso, fale com a gente: <strong className="text-white">personalizamos do zero</strong> para o seu negócio.
+            </p>
+            <a
+              href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20personalizado%20com%20a%20Nova%20Infortel."
+              target="_blank" rel="noreferrer"
+              className="mt-7 inline-flex items-center gap-2 bg-ni-warm text-ni-ink px-6 py-3 rounded-full text-sm font-semibold hover:bg-white transition shadow-xl shadow-black/20"
+            >
+              Conte seu projeto <ArrowRight className="size-4" />
+            </a>
+          </div>
+        </motion.div>
       </section>
 
       {/* CTA final */}
