@@ -68,14 +68,18 @@ function OnePage() {
 
       {/* Hero */}
       <section id="top" className="relative min-h-[80svh] sm:min-h-[88vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80&auto=format" alt="Prato Sálvia" className="absolute inset-0 size-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-w4-primary/30 via-transparent to-w4-primary/80" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-w4-bg px-6">
-          <p className="font-fraunces italic text-w4-copper">est. 2019 · belo horizonte</p>
-          <h1 className="font-fraunces font-bold leading-[0.95] mt-4 text-balance" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>
+        <motion.img
+          initial={{ scale: 1.1 }} animate={{ scale: 1 }} transition={{ duration: 8, ease: "easeOut" }}
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=2000&q=85&auto=format" alt="Prato Sálvia" className="absolute inset-0 size-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-w4-primary/40 via-w4-primary/20 to-w4-primary/90" />
+        <div className="relative z-10 min-h-[80svh] sm:min-h-[88vh] flex flex-col items-center justify-center text-center text-w4-bg px-6">
+          <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="font-fraunces italic text-w4-copper tracking-wider">est. 2019 · belo horizonte</motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.8 }} className="font-fraunces font-bold leading-[0.95] mt-4 text-balance" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>
             Sálvia
-          </h1>
-          <p className="mt-5 text-xl sm:text-2xl font-fraunces italic max-w-md">Sabor, lugar e tempo, à mesa.</p>
+          </motion.h1>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }} className="mt-5 text-xl sm:text-2xl font-fraunces italic max-w-md">Sabor, lugar e tempo, à mesa.</motion.p>
+          <motion.a initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1 }} href="#reservas" className="mt-8 bg-w4-copper text-w4-primary px-7 py-3 rounded-full text-sm font-semibold hover:bg-w4-bg transition shadow-lg">Reservar mesa</motion.a>
           <a href="#cardapio" className="absolute bottom-10 text-w4-bg/70 animate-bounce"><ChevronDown className="size-6" /></a>
         </div>
       </section>
