@@ -48,7 +48,7 @@ function Contato() {
               <div className="flex gap-3"><Mail className="size-5 text-w1-gold shrink-0" /><span>contato@clinicavertice.com.br</span></div>
               <div className="flex gap-3"><Clock className="size-5 text-w1-gold shrink-0" /><span>Seg–Sex 7h às 20h<br />Sáb 8h às 14h</span></div>
             </div>
-            <a href="https://wa.me/553130001200" target="_blank" rel="noreferrer" className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-emerald-500 text-white py-3 rounded-lg text-sm font-semibold hover:bg-emerald-600 transition">
+            <a href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel." target="_blank" rel="noreferrer" className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-emerald-500 text-white py-3 rounded-lg text-sm font-semibold hover:bg-emerald-600 transition">
               <MessageCircle className="size-4" /> Falar no WhatsApp
             </a>
           </div>
