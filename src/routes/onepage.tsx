@@ -67,20 +67,30 @@ function OnePage() {
       </nav>
 
       {/* Hero */}
-      <section id="top" className="relative min-h-[80svh] sm:min-h-[88vh] overflow-hidden">
+      <section id="top" className="relative min-h-[80svh] sm:min-h-[92vh] overflow-hidden bg-stone-950">
         <motion.img
-          initial={{ scale: 1.1 }} animate={{ scale: 1 }} transition={{ duration: 8, ease: "easeOut" }}
-          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=2000&q=85&auto=format" alt="Prato Sálvia" className="absolute inset-0 size-full object-cover"
+          initial={{ scale: 1.15 }} animate={{ scale: 1 }} transition={{ duration: 10, ease: "easeOut" }}
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=2000&q=85&auto=format" alt="Prato Sálvia" className="absolute inset-0 size-full object-cover" loading="eager" fetchPriority="high" decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-w4-primary/40 via-w4-primary/20 to-w4-primary/90" />
-        <div className="relative z-10 min-h-[80svh] sm:min-h-[88vh] flex flex-col items-center justify-center text-center text-w4-bg px-6">
-          <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="font-fraunces italic text-w4-copper tracking-wider">est. 2019 · belo horizonte</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.8 }} className="font-fraunces font-bold leading-[0.95] mt-4 text-balance" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>
+        {/* Camadas de contraste fortes para legibilidade */}
+        <div className="absolute inset-0 bg-stone-950/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-stone-950/70 via-stone-950/30 to-stone-950/95" />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, transparent 0%, rgba(12,10,9,0.55) 80%)" }} />
+        <div className="relative z-10 min-h-[80svh] sm:min-h-[92vh] flex flex-col items-center justify-center text-center text-w4-bg px-6">
+          <motion.div initial={{ opacity: 0, scaleX: 0 }} animate={{ opacity: 1, scaleX: 1 }} transition={{ delay: 0.2, duration: 0.8 }} className="h-px w-16 bg-w4-copper origin-center mb-6" />
+          <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="font-fraunces italic text-w4-copper tracking-[0.25em] text-xs sm:text-sm uppercase" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}>est. 2019 · belo horizonte</motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.8 }} className="font-fraunces font-bold leading-[0.9] mt-5 text-balance text-white drop-shadow-2xl" style={{ fontSize: "clamp(3.5rem, 10vw, 8rem)", textShadow: "0 4px 30px rgba(0,0,0,0.7)" }}>
             Sálvia
           </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }} className="mt-5 text-xl sm:text-2xl font-fraunces italic max-w-md">Sabor, lugar e tempo, à mesa.</motion.p>
-          <motion.a initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1 }} href="#reservas" className="mt-8 bg-w4-copper text-w4-primary px-7 py-3 rounded-full text-sm font-semibold hover:bg-w4-bg transition shadow-lg">Reservar mesa</motion.a>
-          <a href="#cardapio" className="absolute bottom-10 text-w4-bg/70 animate-bounce"><ChevronDown className="size-6" /></a>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }} className="mt-6 text-xl sm:text-2xl font-fraunces italic max-w-md text-white/95" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.7)" }}>Sabor, lugar e tempo, à mesa.</motion.p>
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1 }} className="mt-9 flex flex-wrap gap-3 justify-center">
+            <a href="#reservas" className="bg-w4-copper text-stone-950 px-8 py-3.5 rounded-full text-sm font-bold tracking-wide hover:bg-white transition shadow-2xl">Reservar mesa</a>
+            <a href="#cardapio" className="border border-white/40 backdrop-blur-sm bg-white/10 text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-white/20 transition">Ver cardápio</a>
+          </motion.div>
+          <div className="mt-10 flex items-center gap-6 text-white/70 text-[10px] uppercase tracking-[0.3em]">
+            <span>★★★★★ 4.9 Google</span><span className="hidden sm:inline">·</span><span className="hidden sm:inline">Top 10 BH · Veja</span>
+          </div>
+          <a href="#cardapio" className="absolute bottom-8 text-white/80 animate-bounce"><ChevronDown className="size-6" /></a>
         </div>
       </section>
 
