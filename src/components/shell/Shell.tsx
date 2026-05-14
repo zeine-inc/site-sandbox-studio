@@ -3,6 +3,7 @@ import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { LeadModal } from "./LeadModal";
+import logoUrl from "@/assets/nova-infortel-logo.png";
 
 const WORLDS = [
   { id: "institucional", label: "Institucional", path: "/institucional" },
@@ -37,12 +38,8 @@ export function Shell({ children }: { children: React.ReactNode }) {
       {/* Header */}
       <header className="sticky top-0 z-40 backdrop-blur-md bg-white/85 border-b border-black/5">
         <div className="ni-container flex items-center justify-between h-16 gap-4">
-          <Link to="/" className="flex items-center gap-2 shrink-0">
-            <div className="size-8 rounded-md bg-gradient-to-br from-ni-accent to-ni-ink grid place-items-center text-white font-bold text-sm">N</div>
-            <div className="leading-tight">
-              <div className="font-semibold text-sm tracking-tight">Nova Infortel</div>
-              <div className="text-[10px] text-ni-muted -mt-0.5">showcase de formatos</div>
-            </div>
+          <Link to="/" className="flex items-center shrink-0">
+            <img src={logoUrl} alt="Nova Infortel — Plataforma de Negócios" className="h-9 sm:h-10 w-auto" />
           </Link>
 
           {/* World tabs (desktop) */}
