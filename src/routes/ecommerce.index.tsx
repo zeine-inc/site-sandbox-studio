@@ -10,16 +10,16 @@ export const Route = createFileRoute("/ecommerce/")({
 });
 
 const slides = [
-  { t: "Coleção Solstício", s: "O verão como ele deveria ser: leve, sensorial, livre.", img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1600&q=80&auto=format" },
-  { t: "Edição Linho Lavado", s: "Tecidos que melhoram a cada uso. Caimento que abraça.", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80&auto=format" },
-  { t: "Acessórios em Latão", s: "Esculturas para vestir, criadas em parceria com Nina Martinelli.", img: "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=1600&q=80&auto=format" },
+  { t: "Coleção Solstício", s: "O verão como ele deveria ser: leve, sensorial, livre.", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1800&q=85&auto=format" },
+  { t: "Edição Linho Lavado", s: "Tecidos que melhoram a cada uso. Caimento que abraça.", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1800&q=85&auto=format" },
+  { t: "Acessórios em Latão", s: "Esculturas para vestir, criadas em parceria com Nina Martinelli.", img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1800&q=85&auto=format" },
 ];
 
 const cats = [
-  { name: "Vestidos", img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80&auto=format" },
-  { name: "Blusas", img: "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&q=80&auto=format" },
-  { name: "Calças", img: "https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=600&q=80&auto=format" },
-  { name: "Acessórios", img: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=600&q=80&auto=format" },
+  { name: "Vestidos", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=700&q=85&auto=format" },
+  { name: "Blusas", img: "https://images.unsplash.com/photo-1551048632-24e444b48a3e?w=700&q=85&auto=format" },
+  { name: "Calças", img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=700&q=85&auto=format" },
+  { name: "Acessórios", img: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=700&q=85&auto=format" },
 ];
 
 function EcomHome() {
@@ -62,12 +62,15 @@ function EcomHome() {
       {/* Categorias */}
       <section className="ni-container py-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {cats.map((c) => (
-            <a href="#" key={c.name} className="group relative aspect-[4/5] overflow-hidden block">
-              <img src={c.img} alt={c.name} className="size-full object-cover group-hover:scale-105 transition duration-700" />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition" />
-              <span className="absolute bottom-4 left-4 text-white font-cormorant text-2xl tracking-wider">{c.name}</span>
-            </a>
+          {cats.map((c, i) => (
+            <motion.a href="#" key={c.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="group relative aspect-[4/5] overflow-hidden block rounded-sm">
+              <img src={c.img} alt={c.name} loading="lazy" className="size-full object-cover group-hover:scale-110 transition duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent group-hover:from-black/85 transition" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="text-white font-cormorant text-2xl sm:text-3xl tracking-wider italic block">{c.name}</span>
+                <span className="text-white/80 text-[10px] uppercase tracking-[0.3em] mt-1 inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">Ver coleção <ChevronRight className="size-3" /></span>
+              </div>
+            </motion.a>
           ))}
         </div>
       </section>

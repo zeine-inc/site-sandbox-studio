@@ -41,7 +41,7 @@ const cardapio = {
 
 const galeria = [
   "1414235077428-338989a2e8c0","1551218808-94e220e084d2","1559339352-11d035aa65de","1424847651672-bf20a4b0982b",
-  "1559925393-8be0ec4767c8","1567620905732-2d1ec7ab7445","1414235077428-338989a2e8c0","1546554137-f86b9593a222",
+  "1559925393-8be0ec4767c8","1567620905732-2d1ec7ab7445","1551782450-a2132b4ba21d","1546554137-f86b9593a222",
 ];
 
 function OnePage() {
@@ -68,14 +68,18 @@ function OnePage() {
 
       {/* Hero */}
       <section id="top" className="relative min-h-[80svh] sm:min-h-[88vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80&auto=format" alt="Prato Sálvia" className="absolute inset-0 size-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-w4-primary/30 via-transparent to-w4-primary/80" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-w4-bg px-6">
-          <p className="font-fraunces italic text-w4-copper">est. 2019 · belo horizonte</p>
-          <h1 className="font-fraunces font-bold leading-[0.95] mt-4 text-balance" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>
+        <motion.img
+          initial={{ scale: 1.1 }} animate={{ scale: 1 }} transition={{ duration: 8, ease: "easeOut" }}
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=2000&q=85&auto=format" alt="Prato Sálvia" className="absolute inset-0 size-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-w4-primary/40 via-w4-primary/20 to-w4-primary/90" />
+        <div className="relative z-10 min-h-[80svh] sm:min-h-[88vh] flex flex-col items-center justify-center text-center text-w4-bg px-6">
+          <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="font-fraunces italic text-w4-copper tracking-wider">est. 2019 · belo horizonte</motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.8 }} className="font-fraunces font-bold leading-[0.95] mt-4 text-balance" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>
             Sálvia
-          </h1>
-          <p className="mt-5 text-xl sm:text-2xl font-fraunces italic max-w-md">Sabor, lugar e tempo, à mesa.</p>
+          </motion.h1>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }} className="mt-5 text-xl sm:text-2xl font-fraunces italic max-w-md">Sabor, lugar e tempo, à mesa.</motion.p>
+          <motion.a initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1 }} href="#reservas" className="mt-8 bg-w4-copper text-w4-primary px-7 py-3 rounded-full text-sm font-semibold hover:bg-w4-bg transition shadow-lg">Reservar mesa</motion.a>
           <a href="#cardapio" className="absolute bottom-10 text-w4-bg/70 animate-bounce"><ChevronDown className="size-6" /></a>
         </div>
       </section>
@@ -92,10 +96,10 @@ function OnePage() {
             Aqui se come devagar, se conversa, se brinda. A casa é pequena de propósito. E a chef Camila Vieira está sempre por perto.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-3">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80&auto=format" alt="" className="aspect-[3/4] object-cover rounded-2xl" />
-          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80&auto=format" alt="" className="aspect-[3/4] object-cover rounded-2xl mt-8" />
-        </div>
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid grid-cols-2 gap-3">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=85&auto=format" alt="Cozinha" loading="lazy" className="aspect-[3/4] object-cover rounded-2xl shadow-xl hover:scale-[1.02] transition duration-700" />
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=85&auto=format" alt="Prato" loading="lazy" className="aspect-[3/4] object-cover rounded-2xl mt-8 shadow-xl hover:scale-[1.02] transition duration-700" />
+        </motion.div>
       </section>
 
       {/* Cardápio */}
