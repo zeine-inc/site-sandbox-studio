@@ -30,7 +30,7 @@ function ProductPage() {
         </div>
         <div>
           <div className="text-xs uppercase tracking-widest text-w2-primary">{p.category}</div>
-          <h1 className="font-cormorant text-4xl sm:text-5xl italic mt-1">{p.name}</h1>
+          <h1 className="font-cormorant text-3xl sm:text-4xl lg:text-5xl italic mt-1 break-words">{p.name}</h1>
           <div className="mt-4 text-2xl font-semibold">R$ {p.price}</div>
           <p className="mt-5 text-sm text-w2-ink/70 leading-relaxed">{p.desc}</p>
 
