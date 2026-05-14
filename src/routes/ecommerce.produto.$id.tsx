@@ -26,7 +26,7 @@ function ProductPage() {
       <Link to="/ecommerce" className="inline-flex items-center gap-1 text-xs text-w2-ink/55 mb-6 hover:text-w2-ink"><ChevronLeft className="size-3" /> voltar à coleção</Link>
       <div className="grid lg:grid-cols-2 gap-10">
         <div className="aspect-[3/4] overflow-hidden bg-w2-ink/5">
-          <img src={p.img} alt={p.name} className="size-full object-cover" />
+          <img src={p.img} alt={p.name} className="size-full object-cover" decoding="async" loading="lazy"/>
         </div>
         <div>
           <div className="text-xs uppercase tracking-widest text-w2-primary">{p.category}</div>
@@ -73,7 +73,7 @@ function ProductPage() {
             {combine.map((c) => c && (
               <Link key={c.id} to="/ecommerce/produto/$id" params={{ id: c.id }} className="group">
                 <div className="aspect-[3/4] overflow-hidden bg-w2-ink/5">
-                  <img src={c.img} alt={c.name} className="size-full object-cover group-hover:scale-105 transition duration-700" />
+                  <img src={c.img} alt={c.name} className="size-full object-cover group-hover:scale-105 transition duration-700" decoding="async" loading="lazy"/>
                 </div>
                 <div className="text-sm mt-2">{c.name}</div>
                 <div className="text-xs font-semibold">R$ {c.price}</div>

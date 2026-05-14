@@ -38,7 +38,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40 backdrop-blur-md bg-white/85 border-b border-black/5">
         <div className="ni-container flex items-center justify-between h-14 sm:h-16 gap-2 sm:gap-4">
           <Link to="/" className="flex items-center shrink-0 min-w-0">
-            <img src={logoUrl} alt="Nova Infortel — Plataforma de Negócios" className="h-8 sm:h-10 w-auto" />
+            <img src={logoUrl} alt="Nova Infortel — Plataforma de Negócios" className="h-8 sm:h-10 w-auto" decoding="async" loading="lazy"/>
           </Link>
 
           {/* World tabs (desktop) */}

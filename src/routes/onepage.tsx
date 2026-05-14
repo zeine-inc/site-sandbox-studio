@@ -97,8 +97,8 @@ function OnePage() {
           </p>
         </div>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid grid-cols-2 gap-3">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=85&auto=format" alt="Cozinha" loading="lazy" className="aspect-[3/4] object-cover rounded-2xl shadow-xl hover:scale-[1.02] transition duration-700" />
-            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=85&auto=format" alt="Prato" loading="lazy" className="aspect-[3/4] object-cover rounded-2xl mt-8 shadow-xl hover:scale-[1.02] transition duration-700" />
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=85&auto=format" alt="Cozinha" loading="lazy" className="aspect-[3/4] object-cover rounded-2xl shadow-xl hover:scale-[1.02] transition duration-700" decoding="async"/>
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=85&auto=format" alt="Prato" loading="lazy" className="aspect-[3/4] object-cover rounded-2xl mt-8 shadow-xl hover:scale-[1.02] transition duration-700" decoding="async"/>
         </motion.div>
       </section>
 
@@ -135,7 +135,7 @@ function OnePage() {
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
           {galeria.map((id, i) => (
             <div key={i} className={`overflow-hidden rounded-xl ${i % 3 === 0 ? "row-span-2 aspect-[3/4]" : "aspect-square"}`}>
-              <img src={`https://images.unsplash.com/photo-${id}?w=600&q=80&auto=format`} alt="" className="size-full object-cover hover:scale-105 transition duration-700" loading="lazy" />
+              <img src={`https://images.unsplash.com/photo-${id}?w=600&q=80&auto=format`} alt="" className="size-full object-cover hover:scale-105 transition duration-700" loading="lazy" decoding="async"/>
             </div>
           ))}
         </div>
