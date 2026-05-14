@@ -96,7 +96,7 @@ function Hub() {
             <a href="#formatos" className="inline-flex items-center gap-2 bg-ni-ink text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-ni-accent transition">
               Explorar formatos <ArrowRight className="size-4" />
             </a>
-            <a href="#contato" className="inline-flex items-center gap-2 bg-white border px-6 py-3 rounded-full text-sm font-semibold hover:border-ni-ink transition">
+            <a href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel." target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white border px-6 py-3 rounded-full text-sm font-semibold hover:border-ni-ink transition">
               Falar com um especialista
             </a>
           </motion.div>
