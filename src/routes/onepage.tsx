@@ -112,6 +112,36 @@ function OnePage() {
         </motion.div>
       </section>
 
+      {/* Pratos em destaque */}
+      <section className="bg-stone-950 text-w4-bg py-20 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30" style={{ background: "radial-gradient(circle at 30% 50%, rgba(176,114,72,0.4), transparent 60%)" }} />
+        <div className="relative ni-container">
+          <div className="text-center">
+            <p className="text-xs uppercase tracking-[0.3em] text-w4-copper font-semibold">Assinatura da casa</p>
+            <h2 className="mt-3 font-fraunces text-4xl sm:text-5xl">Pratos que contam histórias</h2>
+          </div>
+          <div className="mt-12 grid md:grid-cols-3 gap-5">
+            {[
+              { img: "1546069901-ba9599a7e63c", n: "Risoto de cogumelos selvagens", d: "Parmesão envelhecido 24 meses, trufa preta fresca da estação." },
+              { img: "1504674900247-0877df9cc836", n: "Bife ancho 350g", d: "Carne maturada 21 dias, manteiga de ervas do quintal, jus reduzido." },
+              { img: "1565299624946-b28f40a0ae38", n: "Nhoque de batata-doce", d: "Massa fresca diária, manteiga de sálvia, parmesão e nozes-pecã." },
+            ].map((p, i) => (
+              <motion.div key={p.n} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="group">
+                <div className="aspect-[4/5] overflow-hidden rounded-2xl">
+                  <img src={`https://images.unsplash.com/photo-${p.img}?w=700&q=85&auto=format`} alt={p.n} loading="lazy" decoding="async" className="size-full object-cover group-hover:scale-110 transition duration-1000" />
+                </div>
+                <h3 className="mt-5 font-fraunces text-2xl">{p.n}</h3>
+                <p className="mt-2 text-sm text-w4-bg/70 leading-relaxed">{p.d}</p>
+              </motion.div>
+            ))}
+          </div>
+          <div className="mt-14 max-w-2xl mx-auto text-center border-t border-white/10 pt-10">
+            <p className="font-fraunces italic text-2xl sm:text-3xl leading-snug">"A gente cozinha pra quem vem com tempo. Aqui, comida é encontro."</p>
+            <p className="mt-4 text-xs uppercase tracking-[0.3em] text-w4-copper">— Camila Vieira · chef e proprietária</p>
+          </div>
+        </div>
+      </section>
+
       {/* Cardápio */}
       <section id="cardapio" className={`bg-white py-20 ${sec} border-y border-w4-primary/10`}>
         <div className="ni-container">
