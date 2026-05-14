@@ -112,12 +112,15 @@ export function Shell({ children }: { children: React.ReactNode }) {
               {WORLDS.map((w) => (
                 <Link key={w.id} to={w.path} className="text-sm py-2 border-b">{w.label}</Link>
               ))}
-              <button
-                onClick={() => { setModalOpen(true); setMobileOpen(false); }}
-                className="mt-4 bg-ni-ink text-white py-3 rounded-full text-sm font-semibold"
+              <a
+                href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel."
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="mt-4 bg-ni-ink text-white py-3 rounded-full text-sm font-semibold text-center"
               >
                 Quero um site assim
-              </button>
+              </a>
             </motion.div>
           </motion.div>
         )}
