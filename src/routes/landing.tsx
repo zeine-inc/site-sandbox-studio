@@ -70,27 +70,29 @@ function Landing() {
     <div className="bg-w3-primary text-w3-ink" style={{ fontFamily: "var(--font-body-sans)" }}>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-w3-primary via-[#0d2454] to-w3-primary" />
-        <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 8, repeat: Infinity }} className="absolute -top-40 left-1/2 -translate-x-1/2 size-[700px] rounded-full bg-w3-accent/15 blur-3xl" />
-        <motion.div animate={{ scale: [1.1, 1, 1.1] }} transition={{ duration: 10, repeat: Infinity }} className="absolute bottom-0 right-0 size-[500px] rounded-full bg-w3-accent/10 blur-3xl" />
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-w3-deep via-w3-primary to-w3-deep" />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at top, rgba(217,180,108,0.18), transparent 60%)" }} />
+        <motion.div animate={{ scale: [1, 1.08, 1] }} transition={{ duration: 12, repeat: Infinity }} className="absolute -top-40 left-1/2 -translate-x-1/2 size-[700px] rounded-full bg-w3-accent/10 blur-3xl" />
+        <motion.div animate={{ scale: [1.1, 1, 1.1] }} transition={{ duration: 14, repeat: Infinity }} className="absolute bottom-0 right-0 size-[500px] rounded-full bg-w3-accent-2/10 blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(rgba(217,180,108,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(217,180,108,0.6) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-w3-accent/40 to-transparent" />
         <div className="relative ni-container py-16 sm:py-24 text-center">
-          <motion.span initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 bg-w3-accent text-w3-primary font-space text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">
-            <span className="size-1.5 rounded-full bg-w3-primary animate-pulse" /> Turma 47 · Vagas limitadas
+          <motion.span initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 border border-w3-accent/40 bg-w3-accent/10 text-w3-accent font-space text-[11px] font-semibold uppercase tracking-[0.25em] px-4 py-2 rounded-full">
+            <span className="size-1.5 rounded-full bg-w3-accent animate-pulse" /> Turma 47 · Vagas limitadas
           </motion.span>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }} className="mt-6 font-space font-bold text-balance leading-[1] tracking-tight" style={{ fontSize: "clamp(2.25rem, 5.5vw, 4.5rem)" }}>
-            Em <span className="text-w3-accent relative inline-block">3 dias<motion.span initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.8, duration: 0.6 }} className="absolute -bottom-2 left-0 right-0 h-1 bg-w3-accent origin-left" /></span>, você vai entender de investimentos<br className="hidden sm:block" /> mais do que 95% dos brasileiros.
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }} className="mt-6 font-space font-bold text-balance leading-[1.02] tracking-tight" style={{ fontSize: "clamp(2.25rem, 5.5vw, 4.75rem)" }}>
+            Em <span className="text-w3-accent relative inline-block">3 dias<motion.span initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.8, duration: 0.6 }} className="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-w3-accent-2 via-w3-accent to-w3-accent-2 origin-left" /></span>, você vai entender de investimentos<br className="hidden sm:block" /> mais do que <span className="italic text-w3-accent/90">95% dos brasileiros</span>.
           </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mt-5 text-lg sm:text-xl text-white/80 max-w-2xl mx-auto">
-            Imersão online, ao vivo, com Daniel Mentor. O método que já formou +12.000 investidores brasileiros — agora com vagas abertas.
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mt-6 text-lg sm:text-xl text-white/75 max-w-2xl mx-auto leading-relaxed">
+            Imersão online ao vivo com <b className="text-white">Daniel Mentor</b>. O método que já formou +12.000 investidores brasileiros — agora com vagas abertas.
           </motion.p>
-          <motion.a initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} href="#oferta" className="mt-8 inline-block bg-w3-accent text-w3-primary px-10 py-4 rounded-full font-space font-bold uppercase tracking-wider hover:shadow-2xl hover:shadow-w3-accent/40 transition-shadow">Quero garantir minha vaga</motion.a>
-          <div className="mt-8">
-            <p className="text-xs text-white/60 mb-3">Próxima turma começa em:</p>
+          <motion.a initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} href="#oferta" className="mt-8 inline-block bg-gradient-to-b from-w3-accent to-w3-accent-2 text-w3-deep px-10 py-4 rounded-full font-space font-bold uppercase tracking-[0.18em] shadow-[0_20px_60px_-15px_rgba(217,180,108,0.6)] hover:shadow-[0_25px_70px_-10px_rgba(217,180,108,0.8)] transition-shadow">Quero garantir minha vaga</motion.a>
+          <div className="mt-10">
+            <p className="text-[11px] uppercase tracking-[0.3em] text-white/50 mb-3">Próxima turma começa em</p>
             <Counter />
           </div>
-          <div className="mt-10 flex justify-center items-center gap-6 sm:gap-8 text-white/50 text-[10px] uppercase tracking-widest">
-            <span>★★★★★ 4.9</span><span className="hidden sm:inline">·</span><span>+12.000 alunos</span><span className="hidden sm:inline">·</span><span>Garantia 7 dias</span>
+          <div className="mt-10 flex justify-center items-center gap-6 sm:gap-8 text-white/45 text-[10px] uppercase tracking-[0.25em]">
+            <span className="text-w3-accent">★★★★★ 4.9</span><span className="hidden sm:inline">·</span><span>+12.000 alunos</span><span className="hidden sm:inline">·</span><span>Garantia 7 dias</span>
           </div>
         </div>
       </section>
