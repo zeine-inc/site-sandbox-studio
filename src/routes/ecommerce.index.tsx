@@ -62,12 +62,15 @@ function EcomHome() {
       {/* Categorias */}
       <section className="ni-container py-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {cats.map((c) => (
-            <a href="#" key={c.name} className="group relative aspect-[4/5] overflow-hidden block">
-              <img src={c.img} alt={c.name} className="size-full object-cover group-hover:scale-105 transition duration-700" />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition" />
-              <span className="absolute bottom-4 left-4 text-white font-cormorant text-2xl tracking-wider">{c.name}</span>
-            </a>
+          {cats.map((c, i) => (
+            <motion.a href="#" key={c.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="group relative aspect-[4/5] overflow-hidden block rounded-sm">
+              <img src={c.img} alt={c.name} loading="lazy" className="size-full object-cover group-hover:scale-110 transition duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent group-hover:from-black/85 transition" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="text-white font-cormorant text-2xl sm:text-3xl tracking-wider italic block">{c.name}</span>
+                <span className="text-white/80 text-[10px] uppercase tracking-[0.3em] mt-1 inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">Ver coleção <ChevronRight className="size-3" /></span>
+              </div>
+            </motion.a>
           ))}
         </div>
       </section>
