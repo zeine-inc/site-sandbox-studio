@@ -96,9 +96,10 @@ function OnePage() {
             Aqui se come devagar, se conversa, se brinda. A casa é pequena de propósito. E a chef Camila Vieira está sempre por perto.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-3">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80&auto=format" alt="" className="aspect-[3/4] object-cover rounded-2xl" />
-          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80&auto=format" alt="" className="aspect-[3/4] object-cover rounded-2xl mt-8" />
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid grid-cols-2 gap-3">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=85&auto=format" alt="Cozinha" loading="lazy" className="aspect-[3/4] object-cover rounded-2xl shadow-xl hover:scale-[1.02] transition duration-700" />
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=85&auto=format" alt="Prato" loading="lazy" className="aspect-[3/4] object-cover rounded-2xl mt-8 shadow-xl hover:scale-[1.02] transition duration-700" />
+          </motion.div>
         </div>
       </section>
 
