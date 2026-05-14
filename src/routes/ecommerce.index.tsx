@@ -40,7 +40,7 @@ function EcomHome() {
             transition={{ duration: 0.8 }}
             className="absolute inset-0"
           >
-            <img src={cur.img} alt={cur.t} className="size-full object-cover" decoding="async" loading="lazy"/>
+            <img src={cur.img} alt={cur.t} className="size-full object-cover" decoding="async" loading="eager" fetchPriority="high"/>
             <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent" />
           </motion.div>
         </AnimatePresence>
