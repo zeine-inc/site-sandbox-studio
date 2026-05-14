@@ -26,8 +26,9 @@ function EcomHome() {
   const [slide, setSlide] = useState(0);
   const next = () => setSlide((s) => (s + 1) % slides.length);
   const prev = () => setSlide((s) => (s - 1 + slides.length) % slides.length);
-  const { add } = useCart();
+  const { add, category, setCategory } = useCart();
   const cur = slides[slide];
+  const filtered = category === "Todos" ? PRODUCTS : PRODUCTS.filter((p) => p.category === category);
 
   return (
     <div>
@@ -63,27 +64,35 @@ function EcomHome() {
       <section className="ni-container py-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {cats.map((c, i) => (
-            <motion.a href="#" key={c.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="group relative aspect-[4/5] overflow-hidden block rounded-sm">
+            <motion.button type="button" onClick={() => setCategory(c.name)} key={c.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="group relative aspect-[4/5] overflow-hidden block rounded-sm text-left">
               <img src={c.img} alt={c.name} loading="lazy" className="size-full object-cover group-hover:scale-110 transition duration-1000" decoding="async"/>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent group-hover:from-black/85 transition" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent group-hover:from-black/90 transition" />
               <div className="absolute bottom-4 left-4 right-4">
                 <span className="text-white font-cormorant text-2xl sm:text-3xl tracking-wider italic block">{c.name}</span>
-                <span className="text-white/80 text-[10px] uppercase tracking-[0.3em] mt-1 inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">Ver coleção <ChevronRight className="size-3" /></span>
+                <span className="text-white/90 text-[10px] uppercase tracking-[0.3em] mt-1 inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">Ver coleção <ChevronRight className="size-3" /></span>
               </div>
-            </motion.a>
+            </motion.button>
           ))}
         </div>
       </section>
 
       {/* Produtos */}
-      <section className="ni-container pb-16">
-        <div className="text-center mb-10">
+      <section id="produtos" className="ni-container pb-16 scroll-mt-32">
+        <div className="text-center mb-8">
           <p className="text-[10px] uppercase tracking-[0.3em] text-w2-primary font-semibold">Em destaque</p>
-          <h2 className="mt-2 font-cormorant text-4xl sm:text-5xl italic">Peças que ficam.</h2>
+          <h2 className="mt-2 font-cormorant text-4xl sm:text-5xl italic">{category === "Todos" ? "Peças que ficam." : category}</h2>
+          {category !== "Todos" && (
+            <button onClick={() => setCategory("Todos")} className="mt-3 text-[11px] uppercase tracking-[0.2em] text-w2-primary underline underline-offset-4">ver tudo</button>
+          )}
+        </div>
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {["Todos","Vestidos","Blusas","Calças","Acessórios"].map((c) => (
+            <button key={c} onClick={() => setCategory(c)} className={`text-[11px] uppercase tracking-[0.2em] px-4 py-2 rounded-full transition ${category === c ? "bg-w2-ink text-white" : "bg-w2-ink/5 text-w2-ink/70 hover:bg-w2-ink/10"}`}>{c}</button>
+          ))}
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {PRODUCTS.map((p, i) => (
-            <motion.div key={p.id} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: (i % 4) * 0.05 }} className="group">
+          {filtered.map((p, i) => (
+            <motion.div key={p.id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: (i % 4) * 0.05 }} className="group">
               <div className="relative aspect-[3/4] overflow-hidden bg-w2-ink/5">
                 <Link to="/ecommerce/produto/$id" params={{ id: p.id }}>
                   <img src={p.img} alt={p.name} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async"/>
@@ -100,6 +109,9 @@ function EcomHome() {
               </Link>
             </motion.div>
           ))}
+          {filtered.length === 0 && (
+            <div className="col-span-full text-center text-sm text-w2-ink/55 py-16">Nenhuma peça nesta categoria — em breve.</div>
+          )}
         </div>
       </section>
 

@@ -39,25 +39,28 @@
   --color-ni-muted: var(--ni-muted);
 
   /* World 1 — Institucional (Clínica Vértice) */
-  --color-w1-primary: oklch(0.42 0.07 165);
+  --color-w1-primary: oklch(0.38 0.08 165);
   --color-w1-bg: oklch(0.97 0.01 85);
-  --color-w1-gold: oklch(0.7 0.09 80);
-  --color-w1-ink: oklch(0.2 0.02 165);
+  --color-w1-gold: oklch(0.72 0.11 78);
+  --color-w1-ink: oklch(0.18 0.02 165);
 
-  /* World 2 — E-commerce (Ravena) */
-  --color-w2-primary: oklch(0.6 0.16 35);
-  --color-w2-bg: oklch(0.95 0.015 70);
-  --color-w2-ink: oklch(0.18 0.005 30);
+  /* World 2 — E-commerce (Ravena) — terracota + ink profundo */
+  --color-w2-primary: oklch(0.55 0.17 32);
+  --color-w2-bg: oklch(0.96 0.012 70);
+  --color-w2-ink: oklch(0.16 0.01 30);
+  --color-w2-accent: oklch(0.45 0.06 35);
 
-  /* World 3 — Landing (Mentor Capital) */
-  --color-w3-primary: oklch(0.22 0.08 260);
-  --color-w3-accent: oklch(0.88 0.18 95);
+  /* World 3 — Landing (Mentor Capital) — onyx + champagne gold premium */
+  --color-w3-primary: oklch(0.13 0.012 260);    /* near-black onyx */
+  --color-w3-deep: oklch(0.08 0.01 260);        /* black layer */
+  --color-w3-accent: oklch(0.78 0.11 82);       /* champagne gold */
+  --color-w3-accent-2: oklch(0.65 0.13 60);     /* copper edge */
   --color-w3-ink: oklch(0.98 0 0);
 
   /* World 4 — One Page (Sálvia) */
-  --color-w4-primary: oklch(0.36 0.05 130);
+  --color-w4-primary: oklch(0.34 0.06 130);
   --color-w4-bg: oklch(0.94 0.02 80);
-  --color-w4-copper: oklch(0.6 0.1 55);
+  --color-w4-copper: oklch(0.6 0.12 55);
 
   --font-display-serif: "Space Grotesk", system-ui, sans-serif;
   --font-body-sans: "Inter", system-ui, sans-serif;
