@@ -42,7 +42,7 @@ function Sobre() {
         </div>
       </section>
 
-      <section className="ni-container grid lg:grid-cols-3 gap-8 pb-16">
+      <section className="ni-container grid lg:grid-cols-3 gap-8 py-16">
         {valores.map((v, i) => (
           <motion.div key={v.t} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="bg-white border border-w1-primary/10 rounded-2xl p-6">
             <div className="text-w1-gold text-xs uppercase tracking-widest font-semibold">{v.t}</div>
