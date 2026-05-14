@@ -23,7 +23,13 @@ function EcomLayout() {
 }
 
 function Header() {
-  const { count, setOpen } = useCart();
+  const { count, setOpen, category, setCategory } = useCart();
+  const navigate = useNavigate();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const onPick = (c: string) => {
+    setCategory(c);
+    if (pathname !== "/ecommerce") navigate({ to: "/ecommerce" });
+  };
   return (
     <header className="sticky top-14 sm:top-16 z-30 bg-w2-bg/95 backdrop-blur border-b border-w2-ink/10">
       <div className="ni-container">
@@ -32,7 +38,9 @@ function Header() {
             RAVENA
           </Link>
           <nav className="hidden lg:flex gap-7 text-xs uppercase tracking-[0.18em]">
-            {cats.map((c) => <a key={c} href="#" className="hover:text-w2-primary transition">{c}</a>)}
+            {cats.map((c) => (
+              <button key={c} onClick={() => onPick(c)} className={`hover:text-w2-primary transition ${category === c ? "text-w2-primary font-semibold" : ""}`}>{c}</button>
+            ))}
           </nav>
           <div className="flex items-center gap-3 text-w2-ink">
             <button className="p-1 hover:text-w2-primary"><Search className="size-5" /></button>
@@ -51,8 +59,10 @@ function Header() {
           </div>
         </div>
         <div className="lg:hidden border-t border-w2-ink/10 overflow-x-auto">
-          <div className="flex gap-5 px-1 py-2 text-[11px] uppercase tracking-[0.18em] whitespace-nowrap text-w2-ink/70">
-            {cats.map((c) => <a key={c} href="#">{c}</a>)}
+          <div className="flex gap-2 px-1 py-2 whitespace-nowrap">
+            {cats.map((c) => (
+              <button key={c} onClick={() => onPick(c)} className={`text-[11px] uppercase tracking-[0.18em] px-3 py-1.5 rounded-full transition ${category === c ? "bg-w2-primary text-white" : "bg-w2-ink/5 text-w2-ink/70"}`}>{c}</button>
+            ))}
           </div>
         </div>
       </div>
