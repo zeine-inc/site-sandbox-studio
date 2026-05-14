@@ -1,4 +1,4 @@
-import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, User, ShoppingBag, X } from "lucide-react";
 import { CartProvider, useCart } from "@/components/ecommerce/store";
@@ -7,7 +7,7 @@ export const Route = createFileRoute("/ecommerce")({
   component: EcomLayout,
 });
 
-const cats = ["Vestidos", "Blusas", "Calças", "Acessórios", "Coleções", "Sale"];
+const cats = ["Todos", "Vestidos", "Blusas", "Calças", "Acessórios"];
 
 function EcomLayout() {
   return (
