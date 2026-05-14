@@ -30,35 +30,46 @@ function InstHome() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative">
-        <div className="ni-container grid lg:grid-cols-2 gap-10 lg:gap-16 items-center py-12 lg:py-20">
+      <section className="relative overflow-hidden">
+        <div className="absolute -top-40 -right-40 size-[600px] rounded-full bg-w1-gold/10 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 size-[500px] rounded-full bg-w1-primary/10 blur-3xl pointer-events-none" />
+        <div className="relative ni-container grid lg:grid-cols-2 gap-10 lg:gap-16 items-center py-12 lg:py-20">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <p className="text-xs uppercase tracking-[0.25em] text-w1-gold font-semibold">Saúde com propósito</p>
-            <h1 className="mt-4 font-display-serif font-semibold text-w1-primary leading-[1.05] tracking-tight" style={{ fontSize: "clamp(2.25rem, 4.5vw, 4rem)" }}>
-              Cuidar de você é o ofício da nossa equipe.
+            <motion.p initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-w1-gold font-semibold bg-w1-gold/10 px-3 py-1.5 rounded-full">
+              <span className="size-1.5 rounded-full bg-w1-gold animate-pulse" /> Saúde com propósito
+            </motion.p>
+            <h1 className="mt-5 font-display-serif font-semibold text-w1-primary leading-[1.05] tracking-tight" style={{ fontSize: "clamp(2.25rem, 4.5vw, 4rem)" }}>
+              Cuidar de você é o <span className="italic text-w1-gold">ofício</span> da nossa equipe.
             </h1>
             <p className="mt-5 text-lg text-w1-ink/75 max-w-lg">
               Há 18 anos a Clínica Vértice integra mais de 20 especialidades médicas em um só lugar — com diagnóstico ágil, tecnologia avançada e acolhimento que faz diferença.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/institucional/contato" className="bg-w1-primary text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-w1-primary/90 transition">Agendar consulta</Link>
-              <Link to="/institucional/especialidades" className="border border-w1-primary/30 text-w1-primary px-6 py-3 rounded-full text-sm font-semibold hover:bg-white transition">Ver especialidades</Link>
+              <Link to="/institucional/contato" className="group bg-w1-primary text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-w1-primary/90 hover:shadow-xl hover:shadow-w1-primary/30 transition-all hover:-translate-y-0.5 inline-flex items-center gap-2">Agendar consulta <ArrowRight className="size-4 group-hover:translate-x-1 transition" /></Link>
+              <Link to="/institucional/especialidades" className="border border-w1-primary/30 text-w1-primary px-6 py-3 rounded-full text-sm font-semibold hover:bg-white hover:border-w1-primary transition">Ver especialidades</Link>
             </div>
             <div className="mt-10 flex flex-wrap gap-x-6 gap-y-4 sm:gap-8 text-sm">
               <div><div className="font-display-serif text-2xl sm:text-3xl text-w1-primary">120k+</div><div className="text-xs text-w1-ink/60">Pacientes atendidos</div></div>
-              <div><div className="font-display-serif text-2xl sm:text-3xl text-w1-primary">20+</div><div className="text-xs text-w1-ink/60">Especialidades</div></div>
-              <div><div className="font-display-serif text-2xl sm:text-3xl text-w1-primary">18</div><div className="text-xs text-w1-ink/60">Anos de história</div></div>
+              <div className="border-l border-w1-primary/15 pl-6"><div className="font-display-serif text-2xl sm:text-3xl text-w1-primary">20+</div><div className="text-xs text-w1-ink/60">Especialidades</div></div>
+              <div className="border-l border-w1-primary/15 pl-6"><div className="font-display-serif text-2xl sm:text-3xl text-w1-primary">18</div><div className="text-xs text-w1-ink/60">Anos de história</div></div>
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.1 }} className="relative">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80&auto=format" alt="Médica em consulta" className="size-full object-cover" />
+            <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-w1-primary/10">
+              <motion.img whileHover={{ scale: 1.05 }} transition={{ duration: 0.8 }} src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=900&q=80&auto=format" alt="Médica em consulta" className="size-full object-cover" />
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-4 max-w-[220px] hidden sm:block">
-              <div className="text-xs text-w1-gold font-semibold uppercase tracking-wider">Avaliação</div>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-2xl p-4 max-w-[240px] hidden sm:block ring-1 ring-w1-primary/5">
+              <div className="flex items-center gap-2">
+                <div className="flex">{[...Array(5)].map((_, i) => <span key={i} className="text-w1-gold text-sm">★</span>)}</div>
+                <div className="text-xs text-w1-gold font-semibold uppercase tracking-wider">Google</div>
+              </div>
               <div className="font-display-serif text-2xl text-w1-primary mt-1">4.9 / 5.0</div>
-              <div className="text-[11px] text-w1-ink/60">3.420 avaliações no Google</div>
-            </div>
+              <div className="text-[11px] text-w1-ink/60">3.420 avaliações verificadas</div>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8 }} className="absolute -top-4 -right-4 bg-w1-primary text-white rounded-2xl shadow-xl px-4 py-3 hidden sm:block">
+              <div className="text-[10px] uppercase tracking-widest text-w1-gold">Hoje</div>
+              <div className="text-sm font-semibold mt-0.5">+ 47 consultas</div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
