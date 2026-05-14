@@ -17,31 +17,69 @@ const posts = [
 ];
 
 function Blog() {
+  const [feat, ...rest] = posts;
   return (
-    <div className="ni-container py-12 lg:py-20">
-      <p className="text-xs uppercase tracking-[0.25em] text-w1-gold font-semibold">Blog Vértice</p>
-      <h1 className="mt-3 font-display-serif text-w1-primary text-balance" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
-        Conteúdo de saúde com assinatura médica.
-      </h1>
-      <p className="mt-4 max-w-2xl text-lg text-w1-ink/70">Tudo que você lê aqui é escrito ou revisado por um especialista da nossa equipe clínica.</p>
+    <div>
+      <section className="bg-w1-bg border-b border-w1-primary/10">
+        <div className="ni-container py-12 lg:py-16">
+          <p className="text-xs uppercase tracking-[0.3em] text-w1-gold font-semibold">Blog Vértice</p>
+          <h1 className="mt-3 font-display-serif text-w1-primary text-balance leading-[1.05]" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
+            Conteúdo de saúde com <span className="italic text-w1-gold">assinatura médica</span>.
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg text-w1-ink/70">Tudo que você lê aqui é escrito ou revisado por um especialista da nossa equipe clínica.</p>
+        </div>
+      </section>
 
-      <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map((p, i) => (
-          <motion.article key={p.t} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: (i % 3) * 0.06 }} className="group bg-white rounded-2xl overflow-hidden border border-w1-primary/10 lift">
-            <div className="aspect-[16/10] overflow-hidden">
-              <img src={p.img} alt={p.t} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async"/>
+      <div className="ni-container py-12">
+        {/* Featured */}
+        <motion.article initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid lg:grid-cols-2 gap-8 group cursor-pointer">
+          <div className="aspect-[4/3] overflow-hidden rounded-2xl">
+            <img src={feat.img} alt={feat.t} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="eager" decoding="async" fetchPriority="high" />
+          </div>
+          <div className="flex flex-col justify-center">
+            <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-w1-gold">Destaque · {feat.cat}</span>
+            <h2 className="font-display-serif text-3xl sm:text-4xl text-w1-primary mt-3 leading-tight group-hover:text-w1-gold transition">{feat.t}</h2>
+            <p className="text-w1-ink/70 mt-4 leading-relaxed">{feat.r}</p>
+            <div className="mt-5 flex items-center gap-3 text-sm text-w1-ink/60">
+              <span>{feat.a}</span><span>·</span><span>{feat.d}</span><span>·</span><span className="inline-flex items-center gap-1"><Clock className="size-3" /> {feat.lt}</span>
             </div>
-            <div className="p-5">
-              <span className="text-[10px] uppercase tracking-widest font-semibold text-w1-gold">{p.cat}</span>
-              <h2 className="font-display-serif text-xl text-w1-primary mt-2 leading-snug">{p.t}</h2>
-              <p className="text-sm text-w1-ink/65 mt-2 line-clamp-3">{p.r}</p>
-              <div className="mt-4 flex items-center justify-between text-[11px] text-w1-ink/55">
-                <span>{p.a} · {p.d}</span>
-                <span className="inline-flex items-center gap-1"><Clock className="size-3" /> {p.lt}</span>
+          </div>
+        </motion.article>
+
+        <div className="my-12 flex flex-wrap gap-2">
+          {["Todos","Cardiologia","Pediatria","Ortopedia","Dermatologia","Neurologia","Endocrinologia"].map((c) => (
+            <button key={c} className={`text-xs uppercase tracking-wider px-4 py-2 rounded-full transition ${c === "Todos" ? "bg-w1-primary text-white" : "bg-white border border-w1-primary/15 text-w1-ink/70 hover:border-w1-primary"}`}>{c}</button>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {rest.map((p, i) => (
+            <motion.article key={p.t} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: (i % 3) * 0.06 }} className="group bg-white rounded-2xl overflow-hidden border border-w1-primary/10 hover:shadow-xl hover:border-w1-gold/40 hover:-translate-y-1 transition-all cursor-pointer">
+              <div className="aspect-[16/10] overflow-hidden">
+                <img src={p.img} alt={p.t} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async" />
               </div>
-            </div>
-          </motion.article>
-        ))}
+              <div className="p-5">
+                <span className="text-[10px] uppercase tracking-widest font-semibold text-w1-gold">{p.cat}</span>
+                <h2 className="font-display-serif text-xl text-w1-primary mt-2 leading-snug group-hover:text-w1-gold transition">{p.t}</h2>
+                <p className="text-sm text-w1-ink/65 mt-2 line-clamp-3">{p.r}</p>
+                <div className="mt-4 flex items-center justify-between text-[11px] text-w1-ink/55">
+                  <span>{p.a} · {p.d}</span>
+                  <span className="inline-flex items-center gap-1"><Clock className="size-3" /> {p.lt}</span>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+
+        {/* Newsletter */}
+        <div className="mt-16 bg-w1-primary text-white rounded-3xl p-8 sm:p-12 text-center">
+          <h3 className="font-display-serif text-2xl sm:text-3xl">Receba nossos artigos por e-mail</h3>
+          <p className="mt-2 text-white/70 text-sm max-w-md mx-auto">Um e-mail por semana. Sem spam, sem venda — só conteúdo de saúde com base científica.</p>
+          <form onSubmit={(e) => e.preventDefault()} className="mt-6 flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+            <input type="email" required placeholder="seu@email.com" className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-sm placeholder:text-white/50 outline-none focus:border-w1-gold" />
+            <button className="bg-w1-gold text-w1-primary px-6 py-3 rounded-lg text-sm font-semibold hover:bg-white transition">Inscrever</button>
+          </form>
+        </div>
       </div>
     </div>
   );
