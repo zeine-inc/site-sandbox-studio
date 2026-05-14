@@ -143,17 +143,19 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
       {/* Footer */}
       <footer className="bg-ni-ink text-white/80 mt-auto">
-        <div className="ni-container py-8 grid sm:grid-cols-2 gap-4 text-sm">
-          <div>
-            <div className="font-semibold text-white">Nova Infortel</div>
-            <p className="text-xs text-white/60 mt-1 max-w-md">
-              Demonstração desenvolvida pela Nova Infortel — Sites que vendem, atendem e crescem com seu negócio.
-            </p>
+        <div className="ni-container py-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm">
+          <div className="flex items-center gap-3">
+            <div className="size-2 rounded-full bg-ni-warm" />
+            <span className="text-white/90">Desenvolvido por <span className="font-semibold text-white">Nova Infortel</span></span>
           </div>
-          <div className="sm:text-right text-xs text-white/60">
-            <a href="#" className="hover:text-white">Instagram</a> · <a href="#" className="hover:text-white">LinkedIn</a> · <a href="#" className="hover:text-white">WhatsApp</a>
-            <div className="mt-1">© {new Date().getFullYear()} Nova Infortel. Todos os direitos reservados.</div>
+          <div className="flex items-center gap-4 text-xs text-white/70">
+            <a href="https://www.instagram.com/novainfortel/" target="_blank" rel="noreferrer" className="hover:text-ni-warm transition">Instagram</a>
+            <span className="text-white/20">·</span>
+            <a href="https://br.linkedin.com/in/diskinfortel" target="_blank" rel="noreferrer" className="hover:text-ni-warm transition">LinkedIn</a>
+            <span className="text-white/20">·</span>
+            <a href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel." target="_blank" rel="noreferrer" className="hover:text-ni-warm transition">WhatsApp</a>
           </div>
+          <div className="text-[11px] text-white/50">© {new Date().getFullYear()} Nova Infortel</div>
         </div>
       </footer>
 
