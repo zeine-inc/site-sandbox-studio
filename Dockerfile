@@ -36,18 +36,15 @@ ENV HOST=0.0.0.0
 RUN apt-get update && apt-get install -y tini && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/wrangler.jsonc* ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
-# .wrangler contém o config redirecionado (deploy/config.json) que aponta
-# o wrangler para dist/server/wrangler.json — o build SSR correto.
-COPY --from=builder /app/.wrangler ./.wrangler
 
 EXPOSE 8080
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
 # App é TanStack Start (SSR via Worker), NÃO site estático.
-# `wrangler dev` segue o redirecionamento em .wrangler e usa dist/server/wrangler.json
-# (main: index.js + assets: ../client). `pages dev ./dist` não funciona aqui — dá 404.
-CMD ["npx", "wrangler", "dev", "--ip", "0.0.0.0", "--port", "8080"]
+# O build gera dist/server/wrangler.json com a config correta
+# (main: index.js + assets: ../client). Apontamos o wrangler direto pra ele.
+# `pages dev ./dist` NÃO funciona aqui — trata como estático e dá 404 em tudo.
+CMD ["npx", "wrangler", "dev", "--config", "./dist/server/wrangler.json", "--ip", "0.0.0.0", "--port", "8080"]
