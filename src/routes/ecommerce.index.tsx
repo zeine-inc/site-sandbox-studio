@@ -238,3 +238,6 @@ function EcomHome() {
           </form>
         </div>
       </section>
+    </div>
+  );
+}
