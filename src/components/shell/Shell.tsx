@@ -126,19 +126,9 @@ export function Shell({ children }: { children: React.ReactNode }) {
         )}
       </AnimatePresence>
 
-      {/* Main with world transitions */}
+      {/* Main */}
       <main className="flex-1">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={isHub ? "hub" : (active?.id ?? "page")}
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -30 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {children}
-          </motion.div>
-        </AnimatePresence>
+        {children}
       </main>
 
       {/* Footer */}
