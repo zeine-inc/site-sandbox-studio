@@ -52,7 +52,7 @@ function OnePage() {
   return (
     <div className="bg-w4-bg text-stone-900" style={{ fontFamily: "var(--font-manrope)" }}>
       {/* Sticky local nav */}
-      <nav className="sticky top-[40px] z-30 bg-w4-bg/95 backdrop-blur border-b border-w4-primary/10">
+      <nav className="sticky top-14 sm:top-16 z-30 bg-w4-bg/95 backdrop-blur border-b border-w4-primary/10">
         <div className="ni-container flex items-center justify-between h-14">
           <a href="#top" className="font-fraunces italic text-2xl text-w4-primary">sálvia</a>
           <div className="hidden md:flex gap-6 text-xs uppercase tracking-widest text-w4-primary/70">
@@ -67,7 +67,7 @@ function OnePage() {
       </nav>
 
       {/* Hero */}
-      <section id="top" className="relative h-[88vh] overflow-hidden">
+      <section id="top" className="relative min-h-[80svh] sm:min-h-[88vh] overflow-hidden">
         <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80&auto=format" alt="Prato Sálvia" className="absolute inset-0 size-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-w4-primary/30 via-transparent to-w4-primary/80" />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-w4-bg px-6">
@@ -128,7 +128,7 @@ function OnePage() {
       <section id="galeria" className={`ni-container py-20 ${sec}`}>
         <p className="text-xs uppercase tracking-[0.3em] text-w4-copper font-semibold text-center">Galeria</p>
         <h2 className="mt-3 font-fraunces text-4xl sm:text-5xl text-w4-primary text-center">A casa por dentro</h2>
-        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
           {galeria.map((id, i) => (
             <div key={i} className={`overflow-hidden rounded-xl ${i % 3 === 0 ? "row-span-2 aspect-[3/4]" : "aspect-square"}`}>
               <img src={`https://images.unsplash.com/photo-${id}?w=600&q=80&auto=format`} alt="" className="size-full object-cover hover:scale-105 transition duration-700" loading="lazy" />
@@ -152,10 +152,10 @@ function OnePage() {
           ) : (
             <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="mt-8 space-y-3">
               <input required placeholder="Seu nome" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-sm placeholder:text-white/50 outline-none focus:border-w4-copper" />
-              <div className="grid grid-cols-3 gap-3">
-                <input required type="date" className="bg-white/10 border border-white/20 rounded-lg px-3 py-3 text-sm outline-none focus:border-w4-copper" />
-                <input required type="time" className="bg-white/10 border border-white/20 rounded-lg px-3 py-3 text-sm outline-none focus:border-w4-copper" />
-                <input required type="number" min={1} max={20} placeholder="Pessoas" className="bg-white/10 border border-white/20 rounded-lg px-3 py-3 text-sm placeholder:text-white/50 outline-none focus:border-w4-copper" />
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <input required type="date" className="bg-white/10 border border-white/20 rounded-lg px-3 py-3 text-sm outline-none focus:border-w4-copper min-w-0" />
+                <input required type="time" className="bg-white/10 border border-white/20 rounded-lg px-3 py-3 text-sm outline-none focus:border-w4-copper min-w-0" />
+                <input required type="number" min={1} max={20} placeholder="Pessoas" className="col-span-2 sm:col-span-1 bg-white/10 border border-white/20 rounded-lg px-3 py-3 text-sm placeholder:text-white/50 outline-none focus:border-w4-copper min-w-0" />
               </div>
               <input required placeholder="WhatsApp" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-sm placeholder:text-white/50 outline-none focus:border-w4-copper" />
               <textarea rows={2} placeholder="Observação (alergias, ocasião especial...)" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-sm placeholder:text-white/50 outline-none focus:border-w4-copper" />

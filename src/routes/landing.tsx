@@ -139,10 +139,10 @@ function Landing() {
           <p className="text-w3-accent text-xs uppercase tracking-widest font-bold">O mentor</p>
           <h2 className="font-space text-3xl sm:text-4xl font-bold mt-2">Daniel Mentor</h2>
           <p className="mt-4 text-white/80 leading-relaxed">17 anos de mercado financeiro. Ex-gestor de fundos no BTG, hoje dedicado a desmistificar investimentos para o brasileiro comum.</p>
-          <div className="mt-6 grid grid-cols-3 gap-4">
-            <div><div className="font-space text-3xl text-w3-accent font-bold">12k+</div><div className="text-xs text-white/60">Alunos formados</div></div>
-            <div><div className="font-space text-3xl text-w3-accent font-bold">R$ 4Bi</div><div className="text-xs text-white/60">Sob influência</div></div>
-            <div><div className="font-space text-3xl text-w3-accent font-bold">17</div><div className="text-xs text-white/60">Anos de mercado</div></div>
+          <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-4">
+            <div className="min-w-0"><div className="font-space text-xl sm:text-3xl text-w3-accent font-bold">12k+</div><div className="text-[10px] sm:text-xs text-white/60">Alunos formados</div></div>
+            <div className="min-w-0"><div className="font-space text-xl sm:text-3xl text-w3-accent font-bold">R$ 4Bi</div><div className="text-[10px] sm:text-xs text-white/60">Sob influência</div></div>
+            <div className="min-w-0"><div className="font-space text-xl sm:text-3xl text-w3-accent font-bold">17</div><div className="text-[10px] sm:text-xs text-white/60">Anos de mercado</div></div>
           </div>
         </div>
       </section>
@@ -193,7 +193,7 @@ function Landing() {
         <div className="max-w-lg mx-auto bg-gradient-to-b from-w3-accent to-amber-400 text-w3-primary rounded-3xl p-8 text-center shadow-2xl">
           <div className="text-xs uppercase tracking-widest font-bold">Oferta de lançamento</div>
           <div className="mt-3 text-sm line-through opacity-60">de R$ 1.997 por</div>
-          <div className="font-space font-bold text-6xl mt-1">R$ 497</div>
+          <div className="font-space font-bold text-5xl sm:text-6xl mt-1 break-words">R$ 497</div>
           <div className="text-sm font-semibold mt-1">ou 12x de R$ 49,70</div>
           <button className="mt-6 w-full bg-w3-primary text-white py-4 rounded-full font-space font-bold uppercase tracking-wider hover:scale-[1.02] transition">Garantir minha vaga agora</button>
           <div className="mt-4 text-xs">🔒 Compra 100% segura · Acesso imediato</div>

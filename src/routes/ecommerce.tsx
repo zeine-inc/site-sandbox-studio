@@ -25,7 +25,7 @@ function EcomLayout() {
 function Header() {
   const { count, setOpen } = useCart();
   return (
-    <header className="sticky top-[40px] sm:top-[40px] z-30 bg-w2-bg/95 backdrop-blur border-b border-w2-ink/10">
+    <header className="sticky top-14 sm:top-16 z-30 bg-w2-bg/95 backdrop-blur border-b border-w2-ink/10">
       <div className="ni-container">
         <div className="flex items-center justify-between h-16 gap-4">
           <Link to="/ecommerce" className="font-cormorant text-2xl tracking-[0.2em] text-w2-ink">

@@ -32,7 +32,7 @@ function EcomHome() {
   return (
     <div>
       {/* Hero rotativo */}
-      <section className="relative h-[70vh] sm:h-[80vh] overflow-hidden">
+      <section className="relative min-h-[60svh] sm:min-h-[70vh] lg:min-h-[80vh] overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={cur.t}
@@ -44,16 +44,16 @@ function EcomHome() {
             <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent" />
           </motion.div>
         </AnimatePresence>
-        <div className="relative z-10 ni-container h-full flex items-end pb-16">
+        <div className="relative z-10 ni-container h-full flex items-end pb-12 sm:pb-16">
           <div className="max-w-xl text-white">
-            <p className="text-[11px] uppercase tracking-[0.3em] text-white/80">Drop 03 · Verão 26</p>
-            <h1 className="mt-3 font-cormorant text-5xl sm:text-7xl leading-[1] italic">{cur.t}</h1>
-            <p className="mt-4 text-lg text-white/90">{cur.s}</p>
-            <button className="mt-6 bg-white text-w2-ink px-6 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-w2-primary hover:text-white transition">Explorar coleção</button>
+            <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-white/80">Drop 03 · Verão 26</p>
+            <h1 className="mt-3 font-cormorant text-4xl sm:text-6xl lg:text-7xl leading-[1.05] italic break-words">{cur.t}</h1>
+            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-white/90">{cur.s}</p>
+            <button className="mt-5 sm:mt-6 bg-white text-w2-ink px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-xs font-semibold uppercase tracking-widest hover:bg-w2-primary hover:text-white transition">Explorar coleção</button>
           </div>
         </div>
-        <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 z-10 size-10 rounded-full bg-white/20 backdrop-blur grid place-items-center text-white hover:bg-white/40"><ChevronLeft className="size-5" /></button>
-        <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 z-10 size-10 rounded-full bg-white/20 backdrop-blur grid place-items-center text-white hover:bg-white/40"><ChevronRight className="size-5" /></button>
+        <button onClick={prev} aria-label="Anterior" className="hidden sm:grid absolute left-4 top-1/2 -translate-y-1/2 z-10 size-10 rounded-full bg-white/20 backdrop-blur place-items-center text-white hover:bg-white/40"><ChevronLeft className="size-5" /></button>
+        <button onClick={next} aria-label="Próximo" className="hidden sm:grid absolute right-4 top-1/2 -translate-y-1/2 z-10 size-10 rounded-full bg-white/20 backdrop-blur place-items-center text-white hover:bg-white/40"><ChevronRight className="size-5" /></button>
         <div className="absolute bottom-6 right-6 z-10 flex gap-1.5">
           {slides.map((_, i) => <button key={i} onClick={() => setSlide(i)} className={`h-0.5 transition-all ${slide === i ? "w-8 bg-white" : "w-4 bg-white/40"}`} />)}
         </div>
@@ -101,14 +101,14 @@ function EcomHome() {
       </section>
 
       {/* Banner */}
-      <section className="relative h-[55vh] overflow-hidden">
+      <section className="relative min-h-[45svh] sm:min-h-[55vh] overflow-hidden">
         <img src="https://images.unsplash.com/photo-1485231183945-fffde7cc051e?w=1600&q=80&auto=format" alt="" className="absolute inset-0 size-full object-cover" />
         <div className="absolute inset-0 bg-w2-primary/40 mix-blend-multiply" />
-        <div className="relative z-10 h-full flex items-center justify-center text-center text-white px-6">
+        <div className="relative z-10 min-h-[45svh] sm:min-h-[55vh] flex items-center justify-center text-center text-white px-6 py-12">
           <div className="max-w-xl">
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/80">Pré-venda exclusiva</p>
-            <h2 className="font-cormorant italic text-5xl sm:text-6xl mt-2">Coleção Verão 26</h2>
-            <p className="mt-3 text-white/85">Reserve as peças antes de todo mundo. Lista de prioridade aberta até dia 30.</p>
+            <h2 className="font-cormorant italic text-4xl sm:text-6xl mt-2 break-words">Coleção Verão 26</h2>
+            <p className="mt-3 text-white/85 text-sm sm:text-base">Reserve as peças antes de todo mundo. Lista de prioridade aberta até dia 30.</p>
             <button className="mt-5 bg-white text-w2-ink px-6 py-3 text-xs font-semibold uppercase tracking-widest">Quero entrar na lista</button>
           </div>
         </div>

@@ -18,7 +18,7 @@ function InstLayout() {
   return (
     <div className="bg-w1-bg text-w1-ink" style={{ fontFamily: "var(--font-body-sans)" }}>
       {/* Site header (Clínica Vértice) */}
-      <header className="bg-w1-bg/95 backdrop-blur sticky top-[40px] sm:top-[40px] z-30 border-b border-w1-primary/10">
+      <header className="bg-w1-bg/95 backdrop-blur sticky top-14 sm:top-16 z-30 border-b border-w1-primary/10">
         <div className="ni-container flex items-center justify-between h-16">
           <Link to="/institucional" className="flex items-center gap-2">
             <div className="size-9 rounded-full bg-w1-primary text-white grid place-items-center font-display-serif text-lg">V</div>

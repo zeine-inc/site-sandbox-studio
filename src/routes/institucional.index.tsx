@@ -44,10 +44,10 @@ function InstHome() {
               <Link to="/institucional/contato" className="bg-w1-primary text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-w1-primary/90 transition">Agendar consulta</Link>
               <Link to="/institucional/especialidades" className="border border-w1-primary/30 text-w1-primary px-6 py-3 rounded-full text-sm font-semibold hover:bg-white transition">Ver especialidades</Link>
             </div>
-            <div className="mt-10 flex gap-8 text-sm">
-              <div><div className="font-display-serif text-3xl text-w1-primary">120k+</div><div className="text-xs text-w1-ink/60">Pacientes atendidos</div></div>
-              <div><div className="font-display-serif text-3xl text-w1-primary">20+</div><div className="text-xs text-w1-ink/60">Especialidades</div></div>
-              <div><div className="font-display-serif text-3xl text-w1-primary">18</div><div className="text-xs text-w1-ink/60">Anos de história</div></div>
+            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-4 sm:gap-8 text-sm">
+              <div><div className="font-display-serif text-2xl sm:text-3xl text-w1-primary">120k+</div><div className="text-xs text-w1-ink/60">Pacientes atendidos</div></div>
+              <div><div className="font-display-serif text-2xl sm:text-3xl text-w1-primary">20+</div><div className="text-xs text-w1-ink/60">Especialidades</div></div>
+              <div><div className="font-display-serif text-2xl sm:text-3xl text-w1-primary">18</div><div className="text-xs text-w1-ink/60">Anos de história</div></div>
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.1 }} className="relative">
