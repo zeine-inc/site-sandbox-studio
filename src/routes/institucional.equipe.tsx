@@ -19,26 +19,43 @@ const team = [
 
 function Equipe() {
   return (
-    <div className="ni-container py-12 lg:py-20">
-      <p className="text-xs uppercase tracking-[0.25em] text-w1-gold font-semibold">Nosso corpo clínico</p>
-      <h1 className="mt-3 font-display-serif text-w1-primary text-balance" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
-        Profissionais que cuidam como gostariam de ser cuidados.
-      </h1>
-      <p className="mt-4 max-w-2xl text-lg text-w1-ink/70">
-        Equipe selecionada por critérios técnicos e humanos. Atualização clínica permanente e protocolos baseados em evidência.
-      </p>
+    <div>
+      <section className="relative bg-w1-primary text-white overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1800&q=80&auto=format" alt="" className="absolute inset-0 size-full object-cover opacity-25" loading="eager" decoding="async" fetchPriority="high" />
+        <div className="absolute inset-0 bg-gradient-to-r from-w1-primary via-w1-primary/85 to-w1-primary/60" />
+        <div className="relative ni-container py-16 lg:py-24">
+          <p className="text-xs uppercase tracking-[0.3em] text-w1-gold font-semibold">Nosso corpo clínico</p>
+          <h1 className="mt-4 font-display-serif text-balance leading-[1.05]" style={{ fontSize: "clamp(2.25rem, 5vw, 4rem)" }}>
+            Profissionais que cuidam <span className="italic text-w1-gold">como gostariam de ser cuidados</span>.
+          </h1>
+          <p className="mt-5 max-w-2xl text-lg text-white/80">
+            Equipe selecionada por critérios técnicos e humanos. Atualização clínica permanente e protocolos baseados em evidência.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+            <div><div className="font-display-serif text-2xl text-w1-gold">38</div><div className="text-xs text-white/60">Médicos no corpo clínico</div></div>
+            <div><div className="font-display-serif text-2xl text-w1-gold">22</div><div className="text-xs text-white/60">Anos de experiência média</div></div>
+            <div><div className="font-display-serif text-2xl text-w1-gold">12</div><div className="text-xs text-white/60">Doutores e mestres</div></div>
+          </div>
+        </div>
+      </section>
 
-      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {team.map((m, i) => (
-          <motion.div key={m.nome} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: (i % 4) * 0.06 }} className="group">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-w1-primary/5">
-              <img src={m.img} alt={m.nome} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async"/>
-            </div>
-            <h3 className="mt-4 font-display-serif text-lg text-w1-primary">{m.nome}</h3>
-            <div className="text-w1-gold text-xs uppercase tracking-widest mt-0.5">{m.esp} · {m.crm}</div>
-            <p className="text-sm text-w1-ink/65 mt-2 leading-relaxed">{m.bio}</p>
-          </motion.div>
-        ))}
+      <div className="ni-container py-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {team.map((m, i) => (
+            <motion.div key={m.nome} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: (i % 4) * 0.06 }} className="group">
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-w1-primary/5 relative">
+                <img src={m.img} alt={m.nome} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async" />
+                <div className="absolute inset-0 bg-gradient-to-t from-w1-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
+                <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition">
+                  <a href="/institucional/contato" className="inline-block text-[10px] uppercase tracking-widest bg-w1-gold text-w1-primary px-3 py-1.5 rounded-full font-semibold">Agendar</a>
+                </div>
+              </div>
+              <h3 className="mt-4 font-display-serif text-lg text-w1-primary">{m.nome}</h3>
+              <div className="text-w1-gold text-xs uppercase tracking-widest mt-0.5">{m.esp} · {m.crm}</div>
+              <p className="text-sm text-w1-ink/65 mt-2 leading-relaxed">{m.bio}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );
