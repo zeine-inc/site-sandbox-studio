@@ -31,10 +31,11 @@
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
 
-  /* Nova Infortel brand */
+  /* Nova Infortel brand (azul + laranja do logo) */
   --color-ni-ink: var(--ni-ink);
   --color-ni-bg: var(--ni-bg);
   --color-ni-accent: var(--ni-accent);
+  --color-ni-warm: var(--ni-warm);
   --color-ni-muted: var(--ni-muted);
 
   /* World 1 — Institucional (Clínica Vértice) */
@@ -89,10 +90,12 @@
   --input: oklch(0.93 0.005 255);
   --ring: oklch(0.7 0.04 256);
 
-  --ni-ink: oklch(0.18 0.02 260);
-  --ni-bg: oklch(0.99 0 0);
-  --ni-accent: oklch(0.62 0.2 255);
-  --ni-muted: oklch(0.55 0.02 257);
+  /* Paleta inspirada no logo: azul vibrante + laranja/âmbar */
+  --ni-ink: oklch(0.26 0.07 250);          /* navy profundo */
+  --ni-bg: oklch(0.985 0.008 85);          /* off-white quente */
+  --ni-accent: oklch(0.6 0.17 248);        /* azul logo */
+  --ni-warm: oklch(0.76 0.15 65);          /* laranja/âmbar logo */
+  --ni-muted: oklch(0.5 0.025 250);
 }
 
 .dark {
