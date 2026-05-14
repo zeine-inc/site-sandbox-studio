@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, ChevronLeft, ChevronRight } from "lucide-react";
+import { Plus, ChevronLeft, ChevronRight, Truck, ShieldCheck, RefreshCw, Sparkles, Leaf, Mail } from "lucide-react";
 import { PRODUCTS, useCart } from "@/components/ecommerce/store";
 
 export const Route = createFileRoute("/ecommerce/")({
