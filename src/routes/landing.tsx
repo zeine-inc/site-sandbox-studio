@@ -71,28 +71,40 @@ function Landing() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-w3-primary via-[#0d2454] to-w3-primary" />
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 size-[700px] rounded-full bg-w3-accent/10 blur-3xl" />
+        <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 8, repeat: Infinity }} className="absolute -top-40 left-1/2 -translate-x-1/2 size-[700px] rounded-full bg-w3-accent/15 blur-3xl" />
+        <motion.div animate={{ scale: [1.1, 1, 1.1] }} transition={{ duration: 10, repeat: Infinity }} className="absolute bottom-0 right-0 size-[500px] rounded-full bg-w3-accent/10 blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div className="relative ni-container py-16 sm:py-24 text-center">
-          <span className="inline-block bg-w3-accent text-w3-primary font-space text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded">Turma 47 · Vagas limitadas</span>
-          <h1 className="mt-6 font-space font-bold text-balance leading-[1] tracking-tight" style={{ fontSize: "clamp(2.25rem, 5.5vw, 4.5rem)" }}>
-            Em <span className="text-w3-accent">3 dias</span>, você vai entender de investimentos<br className="hidden sm:block" /> mais do que 95% dos brasileiros.
-          </h1>
-          <p className="mt-5 text-lg sm:text-xl text-white/80 max-w-2xl mx-auto">
+          <motion.span initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 bg-w3-accent text-w3-primary font-space text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">
+            <span className="size-1.5 rounded-full bg-w3-primary animate-pulse" /> Turma 47 · Vagas limitadas
+          </motion.span>
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }} className="mt-6 font-space font-bold text-balance leading-[1] tracking-tight" style={{ fontSize: "clamp(2.25rem, 5.5vw, 4.5rem)" }}>
+            Em <span className="text-w3-accent relative inline-block">3 dias<motion.span initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.8, duration: 0.6 }} className="absolute -bottom-2 left-0 right-0 h-1 bg-w3-accent origin-left" /></span>, você vai entender de investimentos<br className="hidden sm:block" /> mais do que 95% dos brasileiros.
+          </motion.h1>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mt-5 text-lg sm:text-xl text-white/80 max-w-2xl mx-auto">
             Imersão online, ao vivo, com Daniel Mentor. O método que já formou +12.000 investidores brasileiros — agora com vagas abertas.
-          </p>
-          <a href="#oferta" className="mt-8 inline-block bg-w3-accent text-w3-primary px-10 py-4 rounded-full font-space font-bold uppercase tracking-wider hover:scale-105 transition">Quero garantir minha vaga</a>
+          </motion.p>
+          <motion.a initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} href="#oferta" className="mt-8 inline-block bg-w3-accent text-w3-primary px-10 py-4 rounded-full font-space font-bold uppercase tracking-wider hover:shadow-2xl hover:shadow-w3-accent/40 transition-shadow">Quero garantir minha vaga</motion.a>
           <div className="mt-8">
             <p className="text-xs text-white/60 mb-3">Próxima turma começa em:</p>
             <Counter />
+          </div>
+          <div className="mt-10 flex justify-center items-center gap-6 sm:gap-8 text-white/50 text-[10px] uppercase tracking-widest">
+            <span>★★★★★ 4.9</span><span className="hidden sm:inline">·</span><span>+12.000 alunos</span><span className="hidden sm:inline">·</span><span>Garantia 7 dias</span>
           </div>
         </div>
       </section>
 
       {/* Vídeo */}
       <section className="ni-container py-16">
-        <div className="aspect-video max-w-3xl mx-auto bg-black/40 rounded-2xl border border-white/10 grid place-items-center group cursor-pointer hover:border-w3-accent transition">
-          <div className="size-20 rounded-full bg-w3-accent text-w3-primary grid place-items-center group-hover:scale-110 transition"><Play className="size-8 ml-1" fill="currentColor" /></div>
-        </div>
+        <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative aspect-video max-w-3xl mx-auto rounded-2xl border border-white/10 grid place-items-center group cursor-pointer hover:border-w3-accent transition overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1400&q=85&auto=format" alt="Daniel apresentando" className="absolute inset-0 size-full object-cover opacity-60 group-hover:opacity-80 transition" />
+          <div className="absolute inset-0 bg-gradient-to-t from-w3-primary via-w3-primary/40 to-transparent" />
+          <motion.div whileHover={{ scale: 1.15 }} className="relative size-20 rounded-full bg-w3-accent text-w3-primary grid place-items-center shadow-2xl shadow-w3-accent/40">
+            <Play className="size-8 ml-1" fill="currentColor" />
+          </motion.div>
+          <div className="absolute inset-0 rounded-2xl ring-2 ring-w3-accent/0 group-hover:ring-w3-accent/40 transition" />
+        </motion.div>
         <p className="text-center text-sm text-white/60 mt-4">Assista 2 minutos do Daniel explicando o método</p>
       </section>
 
