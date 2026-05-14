@@ -39,10 +39,15 @@ COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/wrangler.jsonc* ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
+# .wrangler contém o config redirecionado (deploy/config.json) que aponta
+# o wrangler para dist/server/wrangler.json — o build SSR correto.
+COPY --from=builder /app/.wrangler ./.wrangler
 
 EXPOSE 8080
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
-# Comando para rodar o TanStack Start no Cloudflare Pages localmente
-CMD ["npx", "wrangler", "pages", "dev", "./dist", "--ip", "0.0.0.0", "--port", "8080"]
+# App é TanStack Start (SSR via Worker), NÃO site estático.
+# `wrangler dev` segue o redirecionamento em .wrangler e usa dist/server/wrangler.json
+# (main: index.js + assets: ../client). `pages dev ./dist` não funciona aqui — dá 404.
+CMD ["npx", "wrangler", "dev", "--ip", "0.0.0.0", "--port", "8080"]
