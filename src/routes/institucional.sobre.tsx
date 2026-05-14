@@ -23,17 +23,26 @@ const valores = [
 function Sobre() {
   return (
     <div>
-      <section className="ni-container py-12 lg:py-20">
-        <p className="text-xs uppercase tracking-[0.25em] text-w1-gold font-semibold">Nossa história</p>
-        <h1 className="mt-3 font-display-serif text-w1-primary text-balance" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
-          Construída por médicos. <br className="hidden sm:block" /> Movida por pacientes.
-        </h1>
-        <p className="mt-5 max-w-2xl text-lg text-w1-ink/70">
-          Em 2007, o casal de médicos Eduardo e Marina Reis decidiu abrir uma clínica diferente: aquela onde queriam ser atendidos. Nasceu a Vértice — e desde então, seguimos firmes ao redor de uma única ideia: pessoas em primeiro lugar.
-        </p>
+      <section className="relative bg-w1-primary text-white overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1800&q=80&auto=format" alt="" className="absolute inset-0 size-full object-cover opacity-30" loading="eager" decoding="async" fetchPriority="high" />
+        <div className="absolute inset-0 bg-gradient-to-r from-w1-primary via-w1-primary/85 to-w1-primary/55" />
+        <div className="relative ni-container py-16 lg:py-24">
+          <p className="text-xs uppercase tracking-[0.3em] text-w1-gold font-semibold">Nossa história</p>
+          <h1 className="mt-4 font-display-serif text-balance leading-[1.05]" style={{ fontSize: "clamp(2.25rem, 5vw, 4rem)" }}>
+            Construída por médicos. <br className="hidden sm:block" /> <span className="italic text-w1-gold">Movida por pacientes.</span>
+          </h1>
+          <p className="mt-5 max-w-2xl text-lg text-white/80">
+            Em 2007, o casal de médicos Eduardo e Marina Reis decidiu abrir uma clínica diferente: aquela onde queriam ser atendidos. Nasceu a Vértice — e desde então, seguimos firmes ao redor de uma única ideia: pessoas em primeiro lugar.
+          </p>
+          <div className="mt-10 grid grid-cols-3 gap-4 sm:gap-8 max-w-md">
+            <div><div className="font-display-serif text-3xl text-w1-gold">18</div><div className="text-xs text-white/60 mt-1">anos de história</div></div>
+            <div><div className="font-display-serif text-3xl text-w1-gold">120k+</div><div className="text-xs text-white/60 mt-1">vidas cuidadas</div></div>
+            <div><div className="font-display-serif text-3xl text-w1-gold">4.9★</div><div className="text-xs text-white/60 mt-1">no Google</div></div>
+          </div>
+        </div>
       </section>
 
-      <section className="ni-container grid lg:grid-cols-3 gap-8 pb-16">
+      <section className="ni-container grid lg:grid-cols-3 gap-8 py-16">
         {valores.map((v, i) => (
           <motion.div key={v.t} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="bg-white border border-w1-primary/10 rounded-2xl p-6">
             <div className="text-w1-gold text-xs uppercase tracking-widest font-semibold">{v.t}</div>
