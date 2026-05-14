@@ -76,12 +76,14 @@ export function Shell({ children }: { children: React.ReactNode }) {
           </select>
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setModalOpen(true)}
+            <a
+              href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel."
+              target="_blank"
+              rel="noreferrer"
               className="hidden sm:inline-flex items-center text-xs font-semibold bg-ni-ink text-white px-4 py-2 rounded-full hover:bg-ni-accent transition"
             >
               Quero um site assim
-            </button>
+            </a>
             <button onClick={() => setMobileOpen(true)} className="lg:hidden p-2" aria-label="menu">
               <Menu className="size-5" />
             </button>
@@ -110,12 +112,15 @@ export function Shell({ children }: { children: React.ReactNode }) {
               {WORLDS.map((w) => (
                 <Link key={w.id} to={w.path} className="text-sm py-2 border-b">{w.label}</Link>
               ))}
-              <button
-                onClick={() => { setModalOpen(true); setMobileOpen(false); }}
-                className="mt-4 bg-ni-ink text-white py-3 rounded-full text-sm font-semibold"
+              <a
+                href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel."
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="mt-4 bg-ni-ink text-white py-3 rounded-full text-sm font-semibold text-center"
               >
                 Quero um site assim
-              </button>
+              </a>
             </motion.div>
           </motion.div>
         )}
@@ -154,7 +159,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
       {/* WhatsApp FAB */}
       <a
-        href="https://wa.me/5500000000000"
+        href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel."
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-5 right-5 z-40 size-14 rounded-full bg-[#25D366] text-white grid place-items-center shadow-lg hover:scale-110 transition"

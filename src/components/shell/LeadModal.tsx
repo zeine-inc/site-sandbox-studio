@@ -49,7 +49,7 @@ export function LeadModal({ open, onClose, interest }: Props) {
                     Enviar pedido
                   </button>
                   <a
-                    href="https://wa.me/5500000000000"
+                    href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel."
                     target="_blank" rel="noreferrer"
                     className="block text-center text-xs text-ni-muted hover:text-ni-ink"
                   >

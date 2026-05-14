@@ -86,8 +86,8 @@ function Hub() {
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-5 text-base sm:text-lg text-ni-muted max-w-2xl mx-auto text-balance"
           >
-            Experimente os <strong className="text-ni-ink">4 formatos</strong> que a Nova Infortel constrói sob medida.
-            Não compre site no escuro — navegue, toque, sinta cada formato e escolha o que faz sentido pra você.
+            Experimente nossos formatos que a <strong className="text-ni-ink">Nova Infortel</strong> constrói sob medida.
+            Templates validados, práticos e completos — escolha o que faz mais sentido pra você.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
@@ -96,7 +96,7 @@ function Hub() {
             <a href="#formatos" className="inline-flex items-center gap-2 bg-ni-ink text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-ni-accent transition">
               Explorar formatos <ArrowRight className="size-4" />
             </a>
-            <a href="#contato" className="inline-flex items-center gap-2 bg-white border px-6 py-3 rounded-full text-sm font-semibold hover:border-ni-ink transition">
+            <a href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel." target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white border px-6 py-3 rounded-full text-sm font-semibold hover:border-ni-ink transition">
               Falar com um especialista
             </a>
           </motion.div>
@@ -172,11 +172,8 @@ function Hub() {
           Conte sobre o seu negócio. Em até 1 hora útil um especialista da Nova Infortel responde com uma proposta inicial.
         </p>
         <div className="mt-7 flex justify-center gap-3 flex-wrap">
-          <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer" className="bg-emerald-600 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-emerald-700 transition">
+          <a href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel." target="_blank" rel="noreferrer" className="bg-emerald-600 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-emerald-700 transition">
             Falar no WhatsApp
-          </a>
-          <a href="mailto:contato@novainfortel.com.br" className="bg-white border px-6 py-3 rounded-full text-sm font-semibold hover:border-ni-ink transition">
-            Enviar e-mail
           </a>
         </div>
       </section>
