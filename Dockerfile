@@ -31,29 +31,28 @@ ENV NODE_ENV=production
 # Executa o build (TanStack Start + Vite)
 RUN if [ -f bun.lockb ]; then bun run build; else npm run build; fi
 
-# ---------- Stage 3: Runtime ----------
+# ---------- Stage 3: runtime ----------
 FROM node:22-alpine AS runner
 WORKDIR /app
-
-# Define variáveis de ambiente para produção
 ENV NODE_ENV=production
 ENV PORT=8080
 ENV HOST=0.0.0.0
 
-# Instala tini para gerenciar processos no container e libc para compatibilidade
 RUN apk add --no-cache libc6-compat tini
 
-# Copia apenas o necessário para a execução, mantendo a imagem leve
+# Copia os arquivos necessários do build
 COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/wrangler.jsonc* ./wrangler.jsonc
+COPY --from=builder /app/wrangler.jsonc* ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 
-# Se o seu projeto usa o Cloudflare Workers/Pages, o dist/ será servido pelo wrangler
+# IMPORTANTE: Removi a linha que tentava copiar o src/server.ts 
+# pois em produção o Wrangler deve ler o que foi compilado no /dist
+
 EXPOSE 8080
 
 ENTRYPOINT ["/sbin/tini", "--"]
 
-# Comando de inicialização usando o Wrangler conforme seu arquivo original
-# Nota: --ip 0.0.0.0 é essencial para o Docker conseguir rotear o tráfego
-CMD ["npx", "wrangler", "dev", "--ip", "0.0.0.0", "--port", "8080", "--log-level", "info"]
+# Alteração no comando final:
+# Em vez de tentar rodar o dev, vamos rodar o modo que lê o build pronto.
+CMD ["npx", "wrangler", "pages", "dev", "./dist", "--ip", "0.0.0.0", "--port", "8080"]
