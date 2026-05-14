@@ -95,33 +95,55 @@ function InstHome() {
 
       {/* Especialidades grid */}
       <section className="ni-container py-16">
-        <div className="flex items-end justify-between mb-8">
+        <div className="flex items-end justify-between mb-8 gap-4">
           <div>
             <p className="text-xs uppercase tracking-[0.25em] text-w1-gold font-semibold">Especialidades</p>
             <h2 className="font-display-serif text-3xl sm:text-4xl text-w1-primary">Mais de 20 áreas em um só lugar</h2>
           </div>
-          <Link to="/institucional/especialidades" className="hidden sm:inline-flex items-center gap-1 text-sm text-w1-primary font-semibold">Ver todas <ArrowRight className="size-4" /></Link>
+          <Link to="/institucional/especialidades" className="hidden sm:inline-flex items-center gap-1 text-sm text-w1-primary font-semibold hover:gap-2 transition-all">Ver todas <ArrowRight className="size-4" /></Link>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {especialidades.map((e) => (
-            <div key={e.name} className="bg-white border border-w1-primary/10 rounded-xl p-5 text-center lift">
-              <e.icon className="size-6 text-w1-gold mx-auto" />
+          {especialidades.map((e, i) => (
+            <motion.div key={e.name} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.04 }} whileHover={{ y: -4 }} className="bg-white border border-w1-primary/10 rounded-2xl p-5 text-center hover:shadow-xl hover:border-w1-gold/40 transition-all group cursor-pointer">
+              <div className="size-12 rounded-full bg-w1-gold/10 grid place-items-center mx-auto group-hover:bg-w1-gold/20 transition">
+                <e.icon className="size-5 text-w1-gold" />
+              </div>
               <div className="mt-3 text-sm font-semibold text-w1-primary">{e.name}</div>
-            </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Galeria da clínica */}
+      <section className="ni-container pb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {[
+            "1631217868264-e5b90bb7e133",
+            "1576091160550-2173dba999ef",
+            "1666214280391-8ff5bd3c0bf0",
+            "1579684385127-1ef15d508118",
+          ].map((id, i) => (
+            <motion.div key={id} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className={`overflow-hidden rounded-2xl ${i === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-auto" : "aspect-square"}`}>
+              <img src={`https://images.unsplash.com/photo-${id}?w=900&q=80&auto=format`} alt="Ambiente da clínica" loading="lazy" className="size-full object-cover hover:scale-110 transition duration-1000" />
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* Depoimento */}
-      <section className="bg-w1-primary text-white">
-        <div className="ni-container py-16 text-center max-w-3xl mx-auto">
-          <Quote className="size-10 text-w1-gold mx-auto" />
+      <section className="relative bg-w1-primary text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(255,255,255,0.2) 0%, transparent 50%)" }} />
+        <div className="relative ni-container py-20 text-center max-w-3xl mx-auto">
+          <Quote className="size-12 text-w1-gold mx-auto" />
           <p className="mt-6 font-display-serif text-2xl sm:text-3xl leading-snug italic text-balance">
             "Vim para um exame e saí com um plano de cuidado completo. Pela primeira vez senti que a equipe realmente me ouviu. A Vértice mudou minha relação com a saúde."
           </p>
-          <div className="mt-6 text-sm">
-            <div className="font-semibold">Joana Albuquerque</div>
-            <div className="text-white/60 text-xs">Paciente há 4 anos</div>
+          <div className="mt-6 flex items-center justify-center gap-3">
+            <div className="size-12 rounded-full bg-w1-gold/20 grid place-items-center text-w1-gold font-semibold">JA</div>
+            <div className="text-sm text-left">
+              <div className="font-semibold">Joana Albuquerque</div>
+              <div className="text-white/60 text-xs">Paciente há 4 anos</div>
+            </div>
           </div>
         </div>
       </section>
@@ -130,7 +152,7 @@ function InstHome() {
       <section className="ni-container py-20 text-center">
         <h2 className="font-display-serif text-3xl sm:text-5xl text-w1-primary">Sua saúde merece atenção integral.</h2>
         <p className="mt-4 text-w1-ink/65 max-w-xl mx-auto">Agende sua primeira consulta e conheça a diferença de uma clínica que pensa em você por inteiro.</p>
-        <Link to="/institucional/contato" className="mt-7 inline-flex bg-w1-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-w1-primary/90 transition">Agendar agora</Link>
+        <Link to="/institucional/contato" className="mt-7 inline-flex items-center gap-2 bg-w1-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-w1-primary/90 hover:shadow-2xl hover:shadow-w1-primary/30 hover:-translate-y-0.5 transition-all">Agendar agora <ArrowRight className="size-4" /></Link>
       </section>
     </div>
   );
