@@ -172,11 +172,8 @@ function Hub() {
           Conte sobre o seu negócio. Em até 1 hora útil um especialista da Nova Infortel responde com uma proposta inicial.
         </p>
         <div className="mt-7 flex justify-center gap-3 flex-wrap">
-          <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer" className="bg-emerald-600 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-emerald-700 transition">
+          <a href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel." target="_blank" rel="noreferrer" className="bg-emerald-600 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-emerald-700 transition">
             Falar no WhatsApp
-          </a>
-          <a href="mailto:contato@novainfortel.com.br" className="bg-white border px-6 py-3 rounded-full text-sm font-semibold hover:border-ni-ink transition">
-            Enviar e-mail
           </a>
         </div>
       </section>
