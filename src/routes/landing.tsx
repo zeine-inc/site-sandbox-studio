@@ -203,16 +203,19 @@ function Landing() {
       </section>
 
       {/* Oferta */}
-      <section id="oferta" className="ni-container py-16">
-        <div className="max-w-lg mx-auto bg-gradient-to-b from-w3-accent to-amber-400 text-w3-primary rounded-3xl p-8 text-center shadow-2xl">
-          <div className="text-xs uppercase tracking-widest font-bold">Oferta de lançamento</div>
-          <div className="mt-3 text-sm line-through opacity-60">de R$ 1.997 por</div>
-          <div className="font-space font-bold text-5xl sm:text-6xl mt-1 break-words">R$ 497</div>
-          <div className="text-sm font-semibold mt-1">ou 12x de R$ 49,70</div>
-          <button className="mt-6 w-full bg-w3-primary text-white py-4 rounded-full font-space font-bold uppercase tracking-wider hover:scale-[1.02] transition">Garantir minha vaga agora</button>
-          <div className="mt-4 text-xs">🔒 Compra 100% segura · Acesso imediato</div>
+      <section id="oferta" className="ni-container py-20">
+        <div className="max-w-lg mx-auto relative">
+          <div className="absolute -inset-1 bg-gradient-to-b from-w3-accent via-w3-accent-2 to-w3-accent rounded-3xl blur-xl opacity-40" />
+          <div className="relative bg-gradient-to-b from-w3-accent to-w3-accent-2 text-w3-deep rounded-3xl p-8 text-center shadow-[0_30px_80px_-20px_rgba(217,180,108,0.5)]">
+            <div className="text-[11px] uppercase tracking-[0.3em] font-bold opacity-80">Oferta de lançamento</div>
+            <div className="mt-4 text-sm line-through opacity-60">de R$ 1.997 por</div>
+            <div className="font-space font-black text-5xl sm:text-6xl mt-1 break-words tracking-tight">R$ 497</div>
+            <div className="text-sm font-semibold mt-1 opacity-80">ou 12x de R$ 49,70</div>
+            <button className="mt-6 w-full bg-w3-deep text-w3-accent py-4 rounded-full font-space font-bold uppercase tracking-[0.2em] hover:bg-black transition border border-w3-deep">Garantir minha vaga agora</button>
+            <div className="mt-4 text-xs opacity-80">🔒 Compra 100% segura · Acesso imediato</div>
+          </div>
         </div>
-        <div className="mt-8"><Counter /></div>
+        <div className="mt-10"><Counter /></div>
       </section>
 
       {/* FAQ */}
