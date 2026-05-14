@@ -3,6 +3,7 @@ import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { LeadModal } from "./LeadModal";
+import logoUrl from "@/assets/nova-infortel-logo.png";
 
 const WORLDS = [
   { id: "institucional", label: "Institucional", path: "/institucional" },
