@@ -97,6 +97,18 @@ function Landing() {
         </div>
       </section>
 
+      {/* Mídia / Imprensa */}
+      <section className="border-y border-white/10 bg-black/20">
+        <div className="ni-container py-8">
+          <p className="text-center text-[10px] uppercase tracking-[0.35em] text-white/40 font-semibold">Daniel já apareceu em</p>
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-white/55">
+            {["InfoMoney","Exame","Valor Econômico","Forbes Brasil","Suno","Você S/A"].map((m) => (
+              <span key={m} className="font-space text-sm sm:text-base tracking-tight hover:text-w3-accent transition">{m}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Vídeo */}
       <section className="ni-container py-16">
         <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative aspect-video max-w-3xl mx-auto rounded-2xl border border-white/10 grid place-items-center group cursor-pointer hover:border-w3-accent transition overflow-hidden">

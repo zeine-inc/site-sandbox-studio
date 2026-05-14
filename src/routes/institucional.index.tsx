@@ -114,6 +114,18 @@ function InstHome() {
         </div>
       </section>
 
+      {/* Convênios */}
+      <section className="bg-white border-y border-w1-primary/10">
+        <div className="ni-container py-10">
+          <p className="text-center text-[11px] uppercase tracking-[0.3em] text-w1-ink/50 font-semibold">Atendemos os principais convênios</p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-w1-primary/70">
+            {["Unimed","Bradesco Saúde","Amil","SulAmérica","Hapvida","Notre Dame","Porto Seguro","Allianz"].map((c) => (
+              <span key={c} className="font-display-serif text-lg sm:text-xl tracking-tight hover:text-w1-primary transition">{c}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Galeria da clínica */}
       <section className="ni-container pb-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">

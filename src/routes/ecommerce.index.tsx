@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, ChevronLeft, ChevronRight } from "lucide-react";
+import { Plus, ChevronLeft, ChevronRight, Truck, ShieldCheck, RefreshCw, Sparkles, Leaf, Mail } from "lucide-react";
 import { PRODUCTS, useCart } from "@/components/ecommerce/store";
 
 export const Route = createFileRoute("/ecommerce/")({
@@ -57,6 +57,23 @@ function EcomHome() {
         <button onClick={next} aria-label="Próximo" className="hidden sm:grid absolute right-4 top-1/2 -translate-y-1/2 z-10 size-10 rounded-full bg-white/20 backdrop-blur place-items-center text-white hover:bg-white/40"><ChevronRight className="size-5" /></button>
         <div className="absolute bottom-6 right-6 z-10 flex gap-1.5">
           {slides.map((_, i) => <button key={i} onClick={() => setSlide(i)} className={`h-0.5 transition-all ${slide === i ? "w-8 bg-white" : "w-4 bg-white/40"}`} />)}
+        </div>
+      </section>
+
+      {/* Benefícios bar */}
+      <section className="bg-w2-ink text-white border-b border-white/10">
+        <div className="ni-container py-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-[11px] sm:text-xs">
+          {[
+            { i: Truck, t: "Frete grátis", s: "Acima de R$ 399" },
+            { i: RefreshCw, t: "Troca fácil", s: "Em até 30 dias" },
+            { i: ShieldCheck, t: "Compra segura", s: "Pix · cartão até 6x" },
+            { i: Sparkles, t: "Feito à mão", s: "Pequenos lotes" },
+          ].map((b) => (
+            <div key={b.t} className="flex items-center gap-3 justify-center">
+              <b.i className="size-4 text-w2-primary" />
+              <div className="leading-tight"><div className="font-semibold uppercase tracking-wider">{b.t}</div><div className="text-white/55 text-[10px]">{b.s}</div></div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -141,6 +158,84 @@ function EcomHome() {
               <img src={`https://images.unsplash.com/photo-${id}?w=600&q=80&auto=format`} alt="" className="size-full object-cover hover:scale-105 transition duration-700" loading="lazy" decoding="async"/>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Brand story */}
+      <section className="bg-w2-bg border-y border-w2-ink/10">
+        <div className="ni-container py-20 grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="aspect-[4/5] overflow-hidden rounded-sm order-2 lg:order-1">
+            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1000&q=85&auto=format" alt="Atelier Ravena" className="size-full object-cover" loading="lazy" decoding="async" />
+          </motion.div>
+          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="order-1 lg:order-2">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-w2-primary font-semibold">Sobre o ateliê</p>
+            <h2 className="mt-2 font-cormorant text-4xl sm:text-5xl italic leading-[1.05]">Costurado em São Paulo,<br/>vestido pelo Brasil.</h2>
+            <p className="mt-5 text-w2-ink/75 leading-relaxed">Cada peça do Ateliê Ravena nasce em pequenas tiragens, costurada por mulheres de uma cooperativa em Vila Madalena. Trabalhamos só com tecidos naturais — linho português, seda mulberry e algodão pima peruano — e mantemos cada coleção entre 30 e 80 peças por modelo.</p>
+            <p className="mt-3 text-w2-ink/75 leading-relaxed">Nossa fundadora, Ravena Otero, traz quinze anos de Paris e Lisboa para criar peças atemporais — para vestir hoje, amanhã e em dez anos.</p>
+            <Link to="/ecommerce" className="mt-7 inline-block text-[11px] uppercase tracking-[0.3em] text-w2-primary border-b border-w2-primary pb-1 hover:text-w2-ink hover:border-w2-ink transition">Conheça o ateliê</Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Materiais */}
+      <section className="ni-container py-20">
+        <div className="text-center max-w-xl mx-auto">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-w2-primary font-semibold">Matéria-prima</p>
+          <h2 className="mt-2 font-cormorant text-4xl sm:text-5xl italic">Tecidos com proveniência.</h2>
+          <p className="mt-3 text-w2-ink/65 text-sm sm:text-base">Cada fibra é escolhida pela mão, pela queda e pelo tempo. Sem poliéster, sem atalho.</p>
+        </div>
+        <div className="mt-12 grid sm:grid-cols-3 gap-4">
+          {[
+            { n: "Linho português", d: "Tinto sob encomenda na região do Minho. Mais leve a cada lavagem.", img: "1558618666-fcd25c85cd64" },
+            { n: "Seda mulberry", d: "Fios longos de Hangzhou, peso 19mm — caimento fluido, brilho discreto.", img: "1606293859500-00b4eddc8c12" },
+            { n: "Algodão pima", d: "Cultivado no norte do Peru. Fibra extra-longa, toque sedoso, durável.", img: "1604176354204-9268737828e4" },
+          ].map((m, i) => (
+            <motion.div key={m.n} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="bg-w2-bg rounded-sm overflow-hidden group">
+              <div className="aspect-[5/4] overflow-hidden">
+                <img src={`https://images.unsplash.com/photo-${m.img}?w=700&q=80&auto=format`} alt={m.n} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async" />
+              </div>
+              <div className="p-5">
+                <div className="flex items-center gap-2"><Leaf className="size-4 text-w2-primary" /><h3 className="font-cormorant italic text-2xl">{m.n}</h3></div>
+                <p className="mt-2 text-sm text-w2-ink/65 leading-relaxed">{m.d}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Depoimentos clientes */}
+      <section className="bg-w2-ink text-white">
+        <div className="ni-container py-20">
+          <div className="text-center mb-12">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-w2-primary font-semibold">Quem veste, conta</p>
+            <h2 className="mt-2 font-cormorant text-4xl sm:text-5xl italic">"Roupa que não cansa de usar."</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { n: "Júlia M.", c: "São Paulo · SP", t: "Comprei o vestido linho Solstício pro casamento da minha irmã e já usei outras 4 vezes. O caimento é absurdo." },
+              { n: "Marina L.", c: "Florianópolis · SC", t: "Atendimento impecável, embalagem que dá vontade de guardar. As peças vivem comigo." },
+              { n: "Helena P.", c: "Curitiba · PR", t: "Finalmente uma marca brasileira que entende qualidade. Pago com prazer pelo que dura." },
+            ].map((d) => (
+              <div key={d.n} className="border border-white/10 rounded-sm p-6 bg-white/5">
+                <div className="text-w2-primary text-lg">★★★★★</div>
+                <p className="mt-3 text-sm text-white/80 leading-relaxed font-cormorant italic text-base">"{d.t}"</p>
+                <div className="mt-4 text-xs"><b>{d.n}</b> · <span className="text-white/55">{d.c}</span></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="ni-container py-20">
+        <div className="max-w-2xl mx-auto text-center">
+          <Mail className="size-8 mx-auto text-w2-primary" />
+          <h2 className="mt-4 font-cormorant text-4xl sm:text-5xl italic">Primeira a saber.</h2>
+          <p className="mt-3 text-sm sm:text-base text-w2-ink/65">Drops, edições limitadas e bastidores do ateliê — direto no seu e-mail. Sem spam, sem rodeio.</p>
+          <form onSubmit={(e) => e.preventDefault()} className="mt-7 flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+            <input required type="email" placeholder="seu@email.com" className="flex-1 bg-white border border-w2-ink/15 rounded-sm px-4 py-3 text-sm outline-none focus:border-w2-primary" />
+            <button className="bg-w2-ink text-white px-6 py-3 rounded-sm text-[11px] uppercase tracking-widest font-semibold hover:bg-w2-primary transition">Inscrever</button>
+          </form>
         </div>
       </section>
     </div>
