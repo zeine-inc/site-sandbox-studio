@@ -76,12 +76,14 @@ export function Shell({ children }: { children: React.ReactNode }) {
           </select>
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setModalOpen(true)}
+            <a
+              href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel."
+              target="_blank"
+              rel="noreferrer"
               className="hidden sm:inline-flex items-center text-xs font-semibold bg-ni-ink text-white px-4 py-2 rounded-full hover:bg-ni-accent transition"
             >
               Quero um site assim
-            </button>
+            </a>
             <button onClick={() => setMobileOpen(true)} className="lg:hidden p-2" aria-label="menu">
               <Menu className="size-5" />
             </button>
