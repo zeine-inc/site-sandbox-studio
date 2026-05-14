@@ -19,7 +19,6 @@ function getActiveWorld(pathname: string) {
 export function Shell({ children }: { children: React.ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const active = getActiveWorld(pathname);
-  const isHub = pathname === "/";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
