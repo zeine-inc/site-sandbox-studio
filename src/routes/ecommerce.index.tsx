@@ -26,8 +26,9 @@ function EcomHome() {
   const [slide, setSlide] = useState(0);
   const next = () => setSlide((s) => (s + 1) % slides.length);
   const prev = () => setSlide((s) => (s - 1 + slides.length) % slides.length);
-  const { add } = useCart();
+  const { add, category, setCategory } = useCart();
   const cur = slides[slide];
+  const filtered = category === "Todos" ? PRODUCTS : PRODUCTS.filter((p) => p.category === category);
 
   return (
     <div>
