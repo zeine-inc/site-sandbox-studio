@@ -19,7 +19,6 @@ function getActiveWorld(pathname: string) {
 export function Shell({ children }: { children: React.ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const active = getActiveWorld(pathname);
-  const isHub = pathname === "/";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
@@ -39,7 +38,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40 backdrop-blur-md bg-white/85 border-b border-black/5">
         <div className="ni-container flex items-center justify-between h-14 sm:h-16 gap-2 sm:gap-4">
           <Link to="/" className="flex items-center shrink-0 min-w-0">
-            <img src={logoUrl} alt="Nova Infortel — Plataforma de Negócios" className="h-8 sm:h-10 w-auto" />
+            <img src={logoUrl} alt="Nova Infortel — Plataforma de Negócios" className="h-8 sm:h-10 w-auto" decoding="async" loading="lazy"/>
           </Link>
 
           {/* World tabs (desktop) */}
@@ -126,19 +125,9 @@ export function Shell({ children }: { children: React.ReactNode }) {
         )}
       </AnimatePresence>
 
-      {/* Main with world transitions */}
+      {/* Main */}
       <main className="flex-1">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={isHub ? "hub" : (active?.id ?? "page")}
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -30 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {children}
-          </motion.div>
-        </AnimatePresence>
+        {children}
       </main>
 
       {/* Footer */}

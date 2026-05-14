@@ -118,7 +118,7 @@ function CartDrawer() {
               )}
               {items.map((it) => (
                 <div key={it.product.id + (it.size||"") + (it.color||"")} className="flex gap-3">
-                  <img src={it.product.img} alt="" className="size-20 object-cover rounded" />
+                  <img src={it.product.img} alt="" className="size-20 object-cover rounded" decoding="async" loading="lazy"/>
                   <div className="flex-1 text-sm">
                     <div className="font-medium">{it.product.name}</div>
                     <div className="text-xs text-w2-ink/55">{it.size && `Tamanho ${it.size}`} {it.color && `· ${it.color}`}</div>

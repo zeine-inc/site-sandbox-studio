@@ -29,7 +29,7 @@ function Blog() {
         {posts.map((p, i) => (
           <motion.article key={p.t} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: (i % 3) * 0.06 }} className="group bg-white rounded-2xl overflow-hidden border border-w1-primary/10 lift">
             <div className="aspect-[16/10] overflow-hidden">
-              <img src={p.img} alt={p.t} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" />
+              <img src={p.img} alt={p.t} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async"/>
             </div>
             <div className="p-5">
               <span className="text-[10px] uppercase tracking-widest font-semibold text-w1-gold">{p.cat}</span>

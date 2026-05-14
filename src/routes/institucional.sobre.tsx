@@ -63,7 +63,7 @@ function Sobre() {
 
       <section className="ni-container py-16">
         <div className="aspect-[16/7] rounded-2xl overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1400&q=80&auto=format" alt="Equipe Clínica Vértice" className="size-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1400&q=80&auto=format" alt="Equipe Clínica Vértice" className="size-full object-cover" decoding="async" loading="eager" fetchPriority="high"/>
         </div>
         <p className="mt-6 text-center text-sm text-w1-ink/60 italic">Equipe Vértice em retiro de imersão clínica · Tiradentes/MG, 2025</p>
       </section>

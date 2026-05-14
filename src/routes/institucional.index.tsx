@@ -124,7 +124,7 @@ function InstHome() {
             "1579684385127-1ef15d508118",
           ].map((id, i) => (
             <motion.div key={id} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className={`overflow-hidden rounded-2xl ${i === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-auto" : "aspect-square"}`}>
-              <img src={`https://images.unsplash.com/photo-${id}?w=900&q=80&auto=format`} alt="Ambiente da clínica" loading="lazy" className="size-full object-cover hover:scale-110 transition duration-1000" />
+              <img src={`https://images.unsplash.com/photo-${id}?w=900&q=80&auto=format`} alt="Ambiente da clínica" loading="lazy" className="size-full object-cover hover:scale-110 transition duration-1000" decoding="async"/>
             </motion.div>
           ))}
         </div>

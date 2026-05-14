@@ -98,7 +98,7 @@ function Landing() {
       {/* Vídeo */}
       <section className="ni-container py-16">
         <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative aspect-video max-w-3xl mx-auto rounded-2xl border border-white/10 grid place-items-center group cursor-pointer hover:border-w3-accent transition overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1400&q=85&auto=format" alt="Daniel apresentando" className="absolute inset-0 size-full object-cover opacity-60 group-hover:opacity-80 transition" />
+          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1400&q=85&auto=format" alt="Daniel apresentando" className="absolute inset-0 size-full object-cover opacity-60 group-hover:opacity-80 transition" decoding="async" loading="eager" fetchPriority="high"/>
           <div className="absolute inset-0 bg-gradient-to-t from-w3-primary via-w3-primary/40 to-transparent" />
           <motion.div whileHover={{ scale: 1.15 }} className="relative size-20 rounded-full bg-w3-accent text-w3-primary grid place-items-center shadow-2xl shadow-w3-accent/40">
             <Play className="size-8 ml-1" fill="currentColor" />
@@ -145,7 +145,7 @@ function Landing() {
       {/* Mentor */}
       <section className="ni-container py-16 grid lg:grid-cols-2 gap-10 items-center">
         <div className="aspect-square max-w-sm rounded-2xl overflow-hidden border-4 border-w3-accent">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&auto=format" alt="Daniel Mentor" className="size-full object-cover" />
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&auto=format" alt="Daniel Mentor" className="size-full object-cover" decoding="async" loading="lazy"/>
         </div>
         <div>
           <p className="text-w3-accent text-xs uppercase tracking-widest font-bold">O mentor</p>

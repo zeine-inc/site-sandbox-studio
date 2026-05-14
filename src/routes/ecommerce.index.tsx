@@ -40,7 +40,7 @@ function EcomHome() {
             transition={{ duration: 0.8 }}
             className="absolute inset-0"
           >
-            <img src={cur.img} alt={cur.t} className="size-full object-cover" />
+            <img src={cur.img} alt={cur.t} className="size-full object-cover" decoding="async" loading="eager" fetchPriority="high"/>
             <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent" />
           </motion.div>
         </AnimatePresence>
@@ -64,7 +64,7 @@ function EcomHome() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {cats.map((c, i) => (
             <motion.a href="#" key={c.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="group relative aspect-[4/5] overflow-hidden block rounded-sm">
-              <img src={c.img} alt={c.name} loading="lazy" className="size-full object-cover group-hover:scale-110 transition duration-1000" />
+              <img src={c.img} alt={c.name} loading="lazy" className="size-full object-cover group-hover:scale-110 transition duration-1000" decoding="async"/>
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent group-hover:from-black/85 transition" />
               <div className="absolute bottom-4 left-4 right-4">
                 <span className="text-white font-cormorant text-2xl sm:text-3xl tracking-wider italic block">{c.name}</span>
@@ -86,7 +86,7 @@ function EcomHome() {
             <motion.div key={p.id} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: (i % 4) * 0.05 }} className="group">
               <div className="relative aspect-[3/4] overflow-hidden bg-w2-ink/5">
                 <Link to="/ecommerce/produto/$id" params={{ id: p.id }}>
-                  <img src={p.img} alt={p.name} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" />
+                  <img src={p.img} alt={p.name} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async"/>
                 </Link>
                 {p.badge && <span className="absolute top-3 left-3 bg-w2-ink text-white text-[10px] uppercase tracking-widest px-2 py-1">{p.badge}</span>}
                 <button onClick={() => add(p)} aria-label="Adicionar à sacola" className="absolute bottom-3 right-3 size-10 rounded-full bg-white text-w2-ink grid place-items-center shadow-md opacity-0 group-hover:opacity-100 hover:bg-w2-primary hover:text-white transition active:scale-95">
@@ -105,7 +105,7 @@ function EcomHome() {
 
       {/* Banner */}
       <section className="relative min-h-[45svh] sm:min-h-[55vh] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1485231183945-fffde7cc051e?w=1600&q=80&auto=format" alt="" className="absolute inset-0 size-full object-cover" />
+        <img src="https://images.unsplash.com/photo-1485231183945-fffde7cc051e?w=1600&q=80&auto=format" alt="" className="absolute inset-0 size-full object-cover" decoding="async" loading="lazy"/>
         <div className="absolute inset-0 bg-w2-primary/40 mix-blend-multiply" />
         <div className="relative z-10 min-h-[45svh] sm:min-h-[55vh] flex items-center justify-center text-center text-white px-6 py-12">
           <div className="max-w-xl">
@@ -126,7 +126,7 @@ function EcomHome() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           {["1488884046321-9b4d40ed3a7d","1485518882345-15568b007406","1469334031218-e382a71b716b","1496747611176-843222e1e57c"].map((id, i) => (
             <div key={i} className="aspect-square overflow-hidden">
-              <img src={`https://images.unsplash.com/photo-${id}?w=600&q=80&auto=format`} alt="" className="size-full object-cover hover:scale-105 transition duration-700" loading="lazy" />
+              <img src={`https://images.unsplash.com/photo-${id}?w=600&q=80&auto=format`} alt="" className="size-full object-cover hover:scale-105 transition duration-700" loading="lazy" decoding="async"/>
             </div>
           ))}
         </div>

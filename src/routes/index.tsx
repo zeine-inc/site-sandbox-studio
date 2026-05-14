@@ -116,7 +116,7 @@ function Hub() {
             >
               <Link to={c.path} className="group block rounded-2xl overflow-hidden bg-white border border-ni-ink/5 lift">
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <img src={c.img} alt={c.title} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" />
+                  <img src={c.img} alt={c.title} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async"/>
                   <div className={`absolute inset-0 bg-gradient-to-tr ${c.accent} opacity-40 mix-blend-multiply`} />
                   <span className="absolute top-3 left-3 text-[10px] font-semibold bg-white/95 text-ni-ink px-2.5 py-1 rounded-full">{c.tag}</span>
                 </div>

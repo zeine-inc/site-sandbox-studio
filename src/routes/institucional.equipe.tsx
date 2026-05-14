@@ -32,7 +32,7 @@ function Equipe() {
         {team.map((m, i) => (
           <motion.div key={m.nome} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: (i % 4) * 0.06 }} className="group">
             <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-w1-primary/5">
-              <img src={m.img} alt={m.nome} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" />
+              <img src={m.img} alt={m.nome} className="size-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async"/>
             </div>
             <h3 className="mt-4 font-display-serif text-lg text-w1-primary">{m.nome}</h3>
             <div className="text-w1-gold text-xs uppercase tracking-widest mt-0.5">{m.esp} · {m.crm}</div>
