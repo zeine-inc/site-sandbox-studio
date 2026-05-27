@@ -36,7 +36,7 @@ const cards = [
     path: "/landing",
     title: "Landing Page de Conversão",
     desc: "Para cursos, infoprodutos, eventos e ofertas pontuais. Estrutura matadora pensada do primeiro pixel à última CTA.",
-    img: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80&auto=format&fit=crop",
     accent: "from-ni-ink to-ni-accent",
     tag: "Single page · Alta conversão",
   },
