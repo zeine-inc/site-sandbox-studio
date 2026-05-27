@@ -198,7 +198,7 @@ function Hub() {
           Pronto pra começar?
         </h2>
         <p className="mt-4 text-ni-muted max-w-xl mx-auto">
-          Conte sobre o seu negócio. Em até 1 hora útil um especialista da Nova Infortel responde com uma proposta inicial.
+          Conte sobre o seu negócio. Um especialista da Nova Infortel entrará em contato para entender sua demanda.
         </p>
         <div className="mt-7 flex justify-center gap-3 flex-wrap">
           <a href="https://wa.me/5566984026800?text=Ol%C3%A1%21%20Quero%20um%20site%20com%20a%20Nova%20Infortel." target="_blank" rel="noreferrer" className="bg-emerald-600 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-emerald-700 transition">
