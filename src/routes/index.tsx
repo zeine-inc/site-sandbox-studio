@@ -18,7 +18,7 @@ const cards = [
     path: "/institucional",
     title: "Site Institucional",
     desc: "Para clínicas, escritórios, construtoras e empresas B2B que precisam transmitir autoridade e conquistar a confiança do cliente.",
-    img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80&auto=format&fit=crop",
     accent: "from-ni-accent to-ni-ink",
     tag: "5 a 6 páginas · CMS",
   },
