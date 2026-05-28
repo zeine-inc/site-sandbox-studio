@@ -260,7 +260,16 @@ function OnePage() {
             <div className="flex gap-3"><Instagram className="size-5 text-w4-copper shrink-0 mt-0.5" /><span>@salvia.cozinha</span></div>
           </div>
         </div>
-        <div className="aspect-[4/3] rounded-2xl bg-w4-primary/10 grid place-items-center text-w4-primary/40">[ mapa ]</div>
+        <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-w4-primary/10 shadow-xl">
+          <iframe
+            title="Localização do Sálvia — Santa Tereza, Belo Horizonte"
+            src="https://www.google.com/maps?q=Rua+Mármore+Santa+Tereza+Belo+Horizonte&output=embed"
+            className="size-full"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
       </section>
 
       <footer className="bg-w4-primary text-w4-bg/70 py-6 text-center text-xs">
