@@ -153,7 +153,7 @@ function EcomHome() {
           <h2 className="mt-2 font-cormorant text-4xl sm:text-5xl italic">Como nossas clientes usam.</h2>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-          {["1495121605193-b116b5b9c5fe","1485518882345-15568b007406","1483985988355-763728e1935b","1496747611176-843222e1e57c"].map((id, i) => (
+          {["1495121605193-b116b5b9c5fe","1487222477894-8943e31ef7b2","1483985988355-763728e1935b","1496747611176-843222e1e57c"].map((id, i) => (
             <div key={i} className="aspect-square overflow-hidden">
               <img src={`https://images.unsplash.com/photo-${id}?w=600&q=80&auto=format&fit=crop`} alt="" className="size-full object-cover hover:scale-105 transition duration-700" loading="lazy" decoding="async"/>
             </div>
