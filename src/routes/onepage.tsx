@@ -182,32 +182,64 @@ function OnePage() {
       </section>
 
       {/* Reservas */}
-      <section id="reservas" className={`bg-w4-primary text-w4-bg py-20 ${sec}`}>
-        <div className="ni-container max-w-xl">
-          <p className="text-xs uppercase tracking-[0.3em] text-w4-copper font-semibold text-center">Reservas</p>
-          <h2 className="mt-3 font-fraunces text-4xl sm:text-5xl text-center">Guarde sua mesa</h2>
-          <p className="mt-3 text-center text-w4-bg/75">Recomendamos reservar com 48h de antecedência. Confirmamos por WhatsApp.</p>
-          {sent ? (
-            <div className="mt-10 text-center bg-white/5 rounded-2xl p-8 border border-white/10">
-              <div className="text-4xl">🌿</div>
-              <p className="mt-3 font-fraunces text-2xl">Pedido recebido</p>
-              <p className="text-sm text-w4-bg/70 mt-2">Em instantes confirmamos no seu WhatsApp.</p>
+      <section id="reservas" className={`relative bg-w4-primary text-w4-bg py-20 ${sec} overflow-hidden`}>
+        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ background: "radial-gradient(circle at 20% 30%, rgba(176,114,72,0.5), transparent 55%), radial-gradient(circle at 80% 80%, rgba(176,114,72,0.3), transparent 60%)" }} />
+        <div className="relative ni-container max-w-xl">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-w4-copper font-semibold">
+              <span className="h-px w-8 bg-w4-copper" /> Reservas <span className="h-px w-8 bg-w4-copper" />
             </div>
+            <h2 className="mt-4 font-fraunces text-4xl sm:text-5xl">Guarde sua mesa</h2>
+            <p className="mt-3 text-w4-bg/75">Recomendamos reservar com 48h de antecedência. Confirmamos por WhatsApp em até 30 min.</p>
+          </div>
+          {sent ? (
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="mt-10 text-center bg-white/5 backdrop-blur rounded-2xl p-10 border border-w4-copper/30">
+              <div className="text-5xl">🌿</div>
+              <p className="mt-4 font-fraunces text-3xl">Pedido recebido</p>
+              <p className="text-sm text-w4-bg/70 mt-3">Em instantes confirmamos no seu WhatsApp.</p>
+            </motion.div>
           ) : (
-            <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="mt-8 space-y-3">
-              <input required placeholder="Seu nome" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-sm placeholder:text-white/50 outline-none focus:border-w4-copper" />
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <input required type="date" className="bg-white/10 border border-white/20 rounded-lg px-3 py-3 text-sm outline-none focus:border-w4-copper min-w-0" />
-                <input required type="time" className="bg-white/10 border border-white/20 rounded-lg px-3 py-3 text-sm outline-none focus:border-w4-copper min-w-0" />
-                <input required type="number" min={1} max={20} placeholder="Pessoas" className="col-span-2 sm:col-span-1 bg-white/10 border border-white/20 rounded-lg px-3 py-3 text-sm placeholder:text-white/50 outline-none focus:border-w4-copper min-w-0" />
+            <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="mt-10 bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 space-y-5 shadow-2xl">
+              <div className="space-y-1.5">
+                <label className="text-[10px] uppercase tracking-[0.25em] text-w4-copper font-semibold">Nome completo</label>
+                <input required placeholder="Como devemos te chamar" className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-2.5 text-base placeholder:text-white/35 outline-none focus:border-w4-copper transition" />
               </div>
-              <input required placeholder="WhatsApp" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-sm placeholder:text-white/50 outline-none focus:border-w4-copper" />
-              <textarea rows={2} placeholder="Observação (alergias, ocasião especial...)" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-sm placeholder:text-white/50 outline-none focus:border-w4-copper" />
-              <button className="w-full bg-w4-copper text-w4-primary py-3.5 rounded-lg font-semibold hover:bg-w4-bg transition">Reservar mesa</button>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
+                <div className="space-y-1.5">
+                  <label className="text-[10px] uppercase tracking-[0.25em] text-w4-copper font-semibold">Data</label>
+                  <input required type="date" className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-2.5 text-sm outline-none focus:border-w4-copper transition [color-scheme:dark]" />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[10px] uppercase tracking-[0.25em] text-w4-copper font-semibold">Horário</label>
+                  <input required type="time" className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-2.5 text-sm outline-none focus:border-w4-copper transition [color-scheme:dark]" />
+                </div>
+                <div className="space-y-1.5 col-span-2 sm:col-span-1">
+                  <label className="text-[10px] uppercase tracking-[0.25em] text-w4-copper font-semibold">Pessoas</label>
+                  <input required type="number" min={1} max={20} placeholder="2" className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-2.5 text-sm placeholder:text-white/35 outline-none focus:border-w4-copper transition" />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[10px] uppercase tracking-[0.25em] text-w4-copper font-semibold">WhatsApp</label>
+                <input required placeholder="(31) 99000-0000" className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-2.5 text-base placeholder:text-white/35 outline-none focus:border-w4-copper transition" />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[10px] uppercase tracking-[0.25em] text-w4-copper font-semibold">Observação <span className="text-white/40 normal-case tracking-normal">(opcional)</span></label>
+                <textarea rows={2} placeholder="Alergias, ocasião especial, restrições..." className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-2.5 text-sm placeholder:text-white/35 outline-none focus:border-w4-copper transition resize-none" />
+              </div>
+
+              <button className="w-full mt-4 bg-w4-copper text-w4-primary py-4 rounded-full font-bold tracking-wide hover:bg-w4-bg transition shadow-xl group inline-flex items-center justify-center gap-2">
+                Reservar mesa
+                <span className="group-hover:translate-x-1 transition">→</span>
+              </button>
+              <p className="text-[11px] text-w4-bg/50 text-center">Ao enviar, você concorda em receber a confirmação por WhatsApp.</p>
             </form>
           )}
         </div>
       </section>
+
 
       {/* Local & horário */}
       <section id="local" className={`ni-container py-20 ${sec} grid lg:grid-cols-2 gap-10`}>
@@ -228,7 +260,16 @@ function OnePage() {
             <div className="flex gap-3"><Instagram className="size-5 text-w4-copper shrink-0 mt-0.5" /><span>@salvia.cozinha</span></div>
           </div>
         </div>
-        <div className="aspect-[4/3] rounded-2xl bg-w4-primary/10 grid place-items-center text-w4-primary/40">[ mapa ]</div>
+        <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-w4-primary/10 shadow-xl">
+          <iframe
+            title="Localização do Sálvia — Santa Tereza, Belo Horizonte"
+            src="https://www.google.com/maps?q=Rua+Mármore+Santa+Tereza+Belo+Horizonte&output=embed"
+            className="size-full"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
       </section>
 
       <footer className="bg-w4-primary text-w4-bg/70 py-6 text-center text-xs">

@@ -187,7 +187,7 @@ function EcomHome() {
         <div className="mt-12 grid sm:grid-cols-3 gap-4">
           {[
             { n: "Linho português", d: "Tinto sob encomenda na região do Minho. Mais leve a cada lavagem.", img: "1558618666-fcd25c85cd64" },
-            { n: "Seda mulberry", d: "Fios longos de Hangzhou, peso 19mm — caimento fluido, brilho discreto.", img: "1606293859500-00b4eddc8c12" },
+            { n: "Seda mulberry", d: "Fios longos de Hangzhou, peso 19mm — caimento fluido, brilho discreto.", img: "1620799140408-edc6dcb6d633" },
             { n: "Algodão pima", d: "Cultivado no norte do Peru. Fibra extra-longa, toque sedoso, durável.", img: "1604176354204-9268737828e4" },
           ].map((m, i) => (
             <motion.div key={m.n} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="bg-w2-bg rounded-sm overflow-hidden group">
